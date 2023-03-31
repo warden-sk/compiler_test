@@ -1,4 +1,4 @@
-```
+```sh
 npm i
 node ./webpack.js
 ```
