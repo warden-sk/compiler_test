@@ -1,14 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Client from './Client';
 import './index.css';
-
-function Client() {
-  return (
-    <div className="message" p="2">
-      Client
-    </div>
-  );
-}
 
 if (typeof window !== 'undefined') {
   ReactDOM.createRoot(window.document.querySelector('#client')!).render(<Client />);
