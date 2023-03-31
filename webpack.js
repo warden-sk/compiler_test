@@ -1,5 +1,6 @@
-import path from 'path';
-import webpack from 'webpack';
+'use strict';
+const path = require('path');
+const webpack = require('webpack');
 
 const inputPath = path.resolve(__dirname, './private');
 const outputPath = path.resolve(__dirname, './public');
@@ -10,7 +11,7 @@ const compiler = webpack({
   module: {
     rules: [
       {
-        loader: path.resolve(__dirname, './compiler.ts'),
+        loader: path.resolve(__dirname, './compiler.js'),
         test: /\.tsx?$/,
       },
     ],

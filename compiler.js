@@ -1,7 +1,7 @@
-import compile from '@warden-sk/compiler';
-import type webpack from 'webpack';
+'use strict';
+const compile = require('@warden-sk/compiler').default;
 
-function compiler(this: webpack.LoaderContext<{}>, code: string): string {
+function compiler(code) {
   const filePath = this.resourcePath;
 
   if (/\.tsx?$/.test(filePath)) {
@@ -16,4 +16,4 @@ function compiler(this: webpack.LoaderContext<{}>, code: string): string {
   return code;
 }
 
-export default compiler;
+exports.default = compiler;
