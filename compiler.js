@@ -12,6 +12,7 @@ function compiler(code) {
     code = compile(filePath, {
       assets: ['./index.css', './index.js'],
       outputPath: './public',
+      publicPath: 'http://127.0.0.1',
       reportErrors: false,
       useServer: true,
       useTransformers: true,
