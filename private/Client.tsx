@@ -17,9 +17,9 @@ function Client() {
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      const thing: string = e.currentTarget.value;
+      const input: string = e.currentTarget.value;
 
-      updateThings(things => [...things, { input: thing, isDone: false }]);
+      updateThings(things => [...things, { input, isDone: false }]);
 
       e.currentTarget.value = '';
     }
