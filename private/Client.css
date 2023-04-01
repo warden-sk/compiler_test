@@ -1,3 +1,4 @@
 .done {
-  background-color: #000;
+  background-color: hsl(120, 100%, 75%);
+  border-color: hsl(120, 100%, 75%);
 }

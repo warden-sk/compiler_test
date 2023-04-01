@@ -26,15 +26,27 @@ function Client() {
   }
 
   return (
-    <div p="4" spaceY="4">
-      <input border="1" onKeyDown={onKeyDown} p="2" type="text" width="100" />
-      <div spaceY="2">
-        {things.map(({ input, isDone }) => (
-          <div alignItems="center" cursor="pointer" display="flex" key={input} onClick={() => done(input)} spaceX="4">
-            <div border="1" borderRadius="50" className={isDone && 'done'} p="4" />
-            <div>{input}</div>
-          </div>
-        ))}
+    <div className="container" mX="auto">
+      <div p="4" spaceY="4">
+        <input
+          border="1"
+          borderRadius="2"
+          onKeyDown={onKeyDown}
+          p="2"
+          placeholder="What has to be done?"
+          type="text"
+          width="100"
+        />
+        <div spaceY="2">
+          {things.map(({ input, isDone }) => (
+            <div alignItems="center" cursor="pointer" display="flex" key={input} onClick={() => done(input)} spaceX="4">
+              <div border="1" borderRadius="2" className={isDone && 'done'} fontWeight="600" lineHeight="1" p="2">
+                {'\u2713'}
+              </div>
+              <div fontWeight={isDone && '600'}>{input}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
