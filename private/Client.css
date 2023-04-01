@@ -1,4 +1,6 @@
 .done {
-  background-color: hsl(120, 100%, 75%);
-  border-color: hsl(120, 100%, 75%);
+  border-style: outset !important;
+}
+.input {
+  border-style: outset !important;
 }
