@@ -9,7 +9,7 @@ const compiler = webpack({
     rules: [
       {
         loader: path.resolve(__dirname, './compiler.js'),
-        test: /\.tsx?$/,
+        test: /\.(?:css|tsx?)$/,
       },
     ],
   },

@@ -4,6 +4,10 @@ const compile = require('@warden-sk/compiler').default;
 function compiler(code) {
   const filePath = this.resourcePath;
 
+  if (/\.css$/.test(filePath)) {
+    return '';
+  }
+
   if (/\.tsx?$/.test(filePath)) {
     /**
      * For more information, visit the compiler documentation at:
