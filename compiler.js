@@ -13,6 +13,7 @@ function compiler(code) {
       assets: ['./index.css', './index.js'],
       outputPath: './public',
       reportErrors: false,
+      useServer: true,
       useTransformers: true,
     });
   }
