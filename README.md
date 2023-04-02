@@ -6,6 +6,19 @@ npm i && node ./webpack.js
 
 After running this command, you should see three new files created in the `public` directory: `index.js`, `index.html`, and `index.css`.
 
+## Options
+
+```ts
+{
+  assets: ['./index.css', './index.js'],
+  outputPath: './public',
+  publicPath: 'http://127.0.0.1',
+  reportErrors: true,
+  useServer: true,
+  useTransformers: true,
+}
+```
+
 ## Output
 
 ```
