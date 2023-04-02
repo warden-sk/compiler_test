@@ -71,7 +71,7 @@ function Client() {
                 className={['done', `done_${isDone}`]}
                 fontWeight="600"
                 lineHeight="1"
-                opacity={isDone ? '75' : '25'}
+                opacity={isDone ? '100' : '50'}
                 p="2"
               >
                 {'\u2713'}
