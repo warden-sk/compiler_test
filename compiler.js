@@ -5,7 +5,7 @@ function compiler(code) {
   const filePath = this.resourcePath;
 
   if (/\.css$/.test(filePath)) {
-    return;
+    return '';
   }
 
   if (/\.tsx?$/.test(filePath)) {
