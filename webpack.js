@@ -24,4 +24,4 @@ const compiler = webpack({
   },
 });
 
-compiler.compile((_, __) => console.log(_, __?.toString({ colors: true })));
+compiler.watch({}, (_, __) => console.log(_, __?.toString({ colors: true })));
