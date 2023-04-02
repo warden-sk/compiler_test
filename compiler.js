@@ -9,7 +9,7 @@ function compiler(code) {
   const path = this.resourcePath;
 
   if (/\.css$/.test(path)) {
-    compileCss({ outputPath: './public', path });
+    compileCss({ cache, outputPath: './public', path });
 
     return '';
   }
