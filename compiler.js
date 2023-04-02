@@ -1,15 +1,18 @@
 'use strict';
 const compile = require('@warden-sk/compiler').default;
+const compileCss = require('@warden-sk/compiler/compileCss').default;
 
 function compiler(code) {
-  const filePath = this.resourcePath;
+  const path = this.resourcePath;
 
   if (/\.css$/.test(filePath)) {
+    compileCss({ outputPath: './public', path });
+
     return '';
   }
 
-  if (/\.tsx?$/.test(filePath)) {
-    code = compile(filePath, {
+  if (/\.tsx?$/.test(path)) {
+    code = compile(path, {
       assets: ['./index.css', './index.js'],
       outputPath: './public',
       publicPath: 'http://127.0.0.1',
