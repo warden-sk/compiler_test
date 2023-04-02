@@ -9,7 +9,7 @@ const compiler = webpack({
     rules: [
       {
         loader: path.resolve(__dirname, './compiler.js'),
-        test: /\.(?:css|tsx?)$/,
+        test: /\.tsx?$/,
       },
     ],
   },
@@ -24,4 +24,4 @@ const compiler = webpack({
   },
 });
 
-compiler.watch({}, (_, __) => console.log(_, __?.toString({ colors: true })));
+compiler.compile((_, __) => console.log(_, __?.toString({ colors: true })));
