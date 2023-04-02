@@ -9,14 +9,27 @@ After running this command, you should see three new files created in the `publi
 ## Output
 
 ```
-→ [16:19] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [16:19] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [16:19] [JS] 1.05 KB 1.61 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
-→ [16:19] [SERVER] http://127.0.0.1
-→ [16:19] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [16:19] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [16:19] [JS] 3.58 KB 1.29 second(s) /Users/marekkobida/Documents/compiler_test/private/Client.tsx
-→ [16:19] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [18:51]
+   ____                       _       _     _     ____   ___ ____  _____
+  / ___|___  _ __  _   _ _ __(_) __ _| |__ | |_  |___ \ / _ \___ \|___ /
+ | |   / _ \| '_ \| | | | '__| |/ _` | '_ \| __|   __) | | | |__) | |_ \
+ | |__| (_) | |_) | |_| | |  | | (_| | | | | |_   / __/| |_| / __/ ___) |
+  \____\___/| .__/ \__, |_|  |_|\__, |_| |_|\__| |_____|\___/_____|____/
+            |_|    |___/        |___/
+  __  __                _      _  __     _     _     _
+ |  \/  | __ _ _ __ ___| | __ | |/ /___ | |__ (_) __| | __ _
+ | |\/| |/ _` | '__/ _ \ |/ / | ' // _ \| '_ \| |/ _` |/ _` |
+ | |  | | (_| | | |  __/   <  | . \ (_) | |_) | | (_| | (_| |
+ |_|  |_|\__,_|_|  \___|_|\_\ |_|\_\___/|_.__/|_|\__,_|\__,_|
+
+→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [18:51] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [18:51] [JS] 1.05 KB 1.45 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
+→ [18:51] [SERVER] http://127.0.0.1
+→ [18:51] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [18:51] [JS] 3.58 KB 1.03 second(s) /Users/marekkobida/Documents/compiler_test/private/Client.tsx
+→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
 null asset index.js 1.15 MiB [compared for emit] (name: main)
 runtime modules 123 bytes 1 module
 modules by path ./node_modules/ 1.1 MiB
@@ -31,7 +44,7 @@ modules by path ./private/ 4.62 KiB
   modules by path ./private/*.css 2 bytes
     ./private/index.css 1 bytes [built] [code generated]
     ./private/Client.css 1 bytes [built] [code generated]
-webpack 5.77.0 compiled successfully in 3257 ms
+webpack 5.77.0 compiled successfully in 2822 ms
 ```
 
 # Compiler options
