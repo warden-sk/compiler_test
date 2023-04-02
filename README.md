@@ -9,10 +9,14 @@ After running this command, you should see three new files created in the `publi
 ## Output
 
 ```
-→ [13:32] [CSS] 0.00 B /compiler_test/private/index.css
-→ [13:32] [JS] 1.02 KB 0.06 second(s) /compiler_test/private/index.tsx
-→ [13:32] [JS] 1.26 KB 0.04 second(s) /compiler_test/private/Client.tsx
-null asset index.js 1.14 MiB [compared for emit] (name: main)
+→ [03:32] [CACHE]
+→ [03:32] [CSS] 91.00 B /compiler_test/private/Client.css
+→ [03:32] [CSS] 255.00 B /compiler_test/private/index.css
+→ [03:32] [JS] 1.02 KB 1.64 second(s) /compiler_test/private/index.tsx
+→ [03:32] [CACHE] 5
+→ [03:32] [CSS] 91.00 B /compiler_test/private/Client.css
+→ [03:32] [JS] 3.55 KB 1.14 second(s) /compiler_test/private/Client.tsx
+null asset index.js 1.15 MiB [compared for emit] (name: main)
 runtime modules 123 bytes 1 module
 modules by path ./node_modules/ 1.1 MiB
   modules by path ./node_modules/@warden-sk/compiler/ 14.5 KiB 11 modules
@@ -25,8 +29,8 @@ modules by path ./node_modules/ 1.1 MiB
   modules by path ./node_modules/scheduler/ 17.3 KiB
     ./node_modules/scheduler/index.js 198 bytes [built] [code generated]
     ./node_modules/scheduler/cjs/scheduler.development.js 17.1 KiB [built] [code generated]
-modules by path ./private/*.tsx 2.28 KiB
+modules by path ./private/*.tsx 4.57 KiB
   ./private/index.tsx 1.02 KiB [built] [code generated]
-  ./private/Client.tsx 1.26 KiB [built] [code generated]
-webpack 5.77.0 compiled successfully in 455 ms
+  ./private/Client.tsx 3.55 KiB [built] [code generated]
+webpack 5.77.0 compiled successfully in 3115 ms
 ```
