@@ -5,7 +5,7 @@ const compileCss = require('@warden-sk/compiler/compileCss').default;
 function compiler(code) {
   const path = this.resourcePath;
 
-  if (/\.css$/.test(filePath)) {
+  if (/\.css$/.test(path)) {
     compileCss({ outputPath: './public', path });
 
     return '';
