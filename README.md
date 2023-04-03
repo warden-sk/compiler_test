@@ -46,16 +46,3 @@ modules by path ./private/ 4.62 KiB
     ./private/Client.css 1 bytes [built] [code generated]
 webpack 5.77.0 compiled successfully in 2822 ms
 ```
-
-# Compiler options
-
-```ts
-{
-  assets: ['./index.css', './index.js'],
-  outputPath: './public',
-  publicPath: 'http://127.0.0.1',
-  reportErrors: true,
-  useServer: true,
-  useTransformers: true,
-}
-```

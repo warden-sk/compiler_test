@@ -1,6 +1,10 @@
 .done {
   border-style: outset !important;
 }
+.done_true {
+  border-color: hsl(120, 100%, 75%);
+  color: hsl(120, 100%, 75%);
+}
 .input {
   border-style: outset !important;
 }
