@@ -19,7 +19,6 @@ function compiler(code) {
       assets: ['./index.css', './index.js'],
       cache,
       outputPath: './public',
-      publicPath: 'http://127.0.0.1',
       reportErrors: true,
       useServer: true,
       useTransformers: true,
