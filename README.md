@@ -9,7 +9,7 @@ After running this command, you should see three new files created in the `publi
 ## Output
 
 ```
-→ [18:51]
+→ [06:28]
    ____                       _       _     _     ____   ___ ____  _____
   / ___|___  _ __  _   _ _ __(_) __ _| |__ | |_  |___ \ / _ \___ \|___ /
  | |   / _ \| '_ \| | | | '__| |/ _` | '_ \| __|   __) | | | |__) | |_ \
@@ -22,14 +22,14 @@ After running this command, you should see three new files created in the `publi
  | |  | | (_| | | |  __/   <  | . \ (_) | |_) | | (_| | (_| |
  |_|  |_|\__,_|_|  \___|_|\_\ |_|\_\___/|_.__/|_|\__,_|\__,_|
 
-→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [18:51] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [18:51] [JS] 1.05 KB 1.45 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
-→ [18:51] [SERVER] http://127.0.0.1
-→ [18:51] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [18:51] [JS] 3.58 KB 1.03 second(s) /Users/marekkobida/Documents/compiler_test/private/Client.tsx
-→ [18:51] [CSS] 91.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [06:28] [CSS] 173.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [06:28] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [06:28] [JS] 1.05 KB 1.44 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
+→ [06:28] [SERVER] http://127.0.0.1
+→ [06:28] [CSS] 332.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [06:28] [CSS] 173.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
+→ [06:28] [JS] 3.58 KB 1.04 second(s) /Users/marekkobida/Documents/compiler_test/private/Client.tsx
+→ [06:28] [CSS] 173.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
 null asset index.js 1.15 MiB [compared for emit] (name: main)
 runtime modules 123 bytes 1 module
 modules by path ./node_modules/ 1.1 MiB
@@ -44,5 +44,8 @@ modules by path ./private/ 4.62 KiB
   modules by path ./private/*.css 2 bytes
     ./private/index.css 1 bytes [built] [code generated]
     ./private/Client.css 1 bytes [built] [code generated]
-webpack 5.77.0 compiled successfully in 2822 ms
+webpack 5.77.0 compiled successfully in 2820 ms
+↓ [06:28] [SERVER] /
+↓ [06:28] [SERVER] /index.css
+↓ [06:28] [SERVER] /index.js
 ```
