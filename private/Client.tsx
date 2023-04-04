@@ -28,8 +28,6 @@ function Client() {
 
   function onDelete(i: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
-      e.stopPropagation();
-
       updateThings(things => {
         return things.filter((thing, j) => {
           return j !== i;
@@ -66,33 +64,47 @@ function Client() {
     }
   }
 
+  function onUpdate(i: number) {
+    return (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        const key: string = e.currentTarget.value;
+
+        updateThings(things => {
+          return things.map((thing, j) => {
+            if (j === i) {
+              return { ...thing, key };
+            } else {
+              return thing;
+            }
+          });
+        });
+      }
+    };
+  }
+
   return (
     <div className="container" mX="auto">
       <div p="4" spaceY="4">
         <Input onKeyDown={onKeyDown} />
         <div spaceY="2">
           {things.map(({ isDone, key }, i) => (
-            <div
-              alignItems="center"
-              className={{ done: isDone }}
-              cursor="pointer"
-              display="flex"
-              key={key}
-              onClick={onDone(i)}
-              spaceX="4"
-            >
+            <div alignItems="center" className={{ done: isDone }} display="flex" key={key} spaceX="4">
               <div
                 border="2"
                 borderRadius="2"
+                cursor="pointer"
                 fontWeight={isDone && '600'}
                 lineHeight="1"
+                onClick={onDone(i)}
                 opacity={isDone ? '100' : '50'}
                 p="2"
               >
                 {'\u2713'}
               </div>
-              <div fontWeight={isDone && '600'}>{key}</div>
-              <div fontWeight="600" lineHeight="1" mL="auto" onClick={onDelete(i)} p="2">
+              <div fontWeight={isDone && '600'} width="100">
+                <input border="0" defaultValue={key} onKeyDown={onUpdate(i)} type="text" width="100" />
+              </div>
+              <div fontWeight="600" lineHeight="1" onClick={onDelete(i)} p="2">
                 {'\u2717'}
               </div>
             </div>
