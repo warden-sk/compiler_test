@@ -14,21 +14,21 @@ interface P {
 function Thing({ i, setThings, thing, things }: P) {
   const { onDragEnd, onDragOver, onDragStart } = useDraggable({ setThings, things });
 
-  function onDelete(i: number) {
+  function onDelete(j: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       setThings(things => {
-        return things.filter((thing, j) => {
-          return j !== i;
+        return things.filter((thing, k) => {
+          return k !== j;
         });
       });
     };
   }
 
-  function onDone(i: number) {
+  function onDone(j: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       setThings(things => {
-        return things.map((thing, j) => {
-          if (j === i) {
+        return things.map((thing, k) => {
+          if (k === j) {
             return { ...thing, isDone: !thing.isDone };
           } else {
             return thing;
@@ -38,14 +38,14 @@ function Thing({ i, setThings, thing, things }: P) {
     };
   }
 
-  function onUpdate(i: number) {
+  function onUpdate(j: number) {
     return (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         const key: string = e.currentTarget.value;
 
         setThings(things => {
-          return things.map((thing, j) => {
-            if (j === i) {
+          return things.map((thing, k) => {
+            if (k === j) {
               return { ...thing, key };
             } else {
               return thing;
