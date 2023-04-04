@@ -1,47 +1,41 @@
 import React from 'react';
 import context from '../context';
 
-let currentThingI = -1;
+let currentThingI: number | undefined;
 
 function useDraggable() {
   const { setThings, things } = React.useContext(context);
 
-  const onDragEnd = React.useCallback((i: number) => {
-    return (e: React.DragEvent<HTMLDivElement>) => {
-      console.log(`onDragEnd at ${i}`);
+  const onDragEnd = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
+    console.log(`onDragEnd at ${i}`);
 
-      currentThingI = -1;
-    };
+    currentThingI = undefined;
   }, []);
 
   const onDragOver = React.useCallback(
-    (i: number) => {
-      return (e: React.DragEvent<HTMLDivElement>) => {
-        console.log(`onDragOver at ${i}`);
+    (e: React.DragEvent<HTMLDivElement>, i: number) => {
+      console.log(`onDragOver at ${i}`);
 
-        e.preventDefault();
+      e.preventDefault();
 
-        if (currentThingI !== i) {
-          const newThings = [...things];
+      if (currentThingI !== i) {
+        const newThings = [...things];
 
-          newThings.splice(currentThingI, 1);
-          newThings.splice(i, 0, things[currentThingI]);
+        newThings.splice(currentThingI!, 1);
+        newThings.splice(i, 0, things[currentThingI!]);
 
-          currentThingI = i;
+        setThings(newThings);
 
-          setThings(newThings);
-        }
-      };
+        currentThingI = i;
+      }
     },
     [setThings, things]
   );
 
-  const onDragStart = React.useCallback((i: number) => {
-    return (e: React.DragEvent<HTMLDivElement>) => {
-      console.log(`onDragStart at ${i}`);
+  const onDragStart = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
+    console.log(`onDragStart at ${i}`);
 
-      currentThingI = i;
-    };
+    currentThingI = i;
   }, []);
 
   return { onDragEnd, onDragOver, onDragStart };

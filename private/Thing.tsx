@@ -14,46 +14,40 @@ function Thing({ i, thing }: I) {
   const { onDragEnd, onDragOver, onDragStart } = useDraggable();
   const { setThings } = React.useContext(context);
 
-  function onDelete(j: number) {
-    return (e: React.MouseEvent<HTMLDivElement>) => {
-      setThings(things => {
-        return things.filter((thing, k) => {
-          return k !== j;
-        });
+  function onDelete(e: React.MouseEvent<HTMLDivElement>, j: number) {
+    setThings(things => {
+      return things.filter((thing, k) => {
+        return k !== j;
       });
-    };
+    });
   }
 
-  function onDone(j: number) {
-    return (e: React.MouseEvent<HTMLDivElement>) => {
+  function onDone(e: React.MouseEvent<HTMLDivElement>, j: number) {
+    setThings(things => {
+      return things.map((thing, k) => {
+        if (k === j) {
+          return { ...thing, isDone: !thing.isDone };
+        } else {
+          return thing;
+        }
+      });
+    });
+  }
+
+  function onUpdate(e: React.KeyboardEvent<HTMLInputElement>, j: number) {
+    if (e.key === 'Enter') {
+      const key: string = e.currentTarget.value;
+
       setThings(things => {
         return things.map((thing, k) => {
           if (k === j) {
-            return { ...thing, isDone: !thing.isDone };
+            return { ...thing, key };
           } else {
             return thing;
           }
         });
       });
-    };
-  }
-
-  function onUpdate(j: number) {
-    return (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        const key: string = e.currentTarget.value;
-
-        setThings(things => {
-          return things.map((thing, k) => {
-            if (k === j) {
-              return { ...thing, key };
-            } else {
-              return thing;
-            }
-          });
-        });
-      }
-    };
+    }
   }
 
   return (
@@ -62,9 +56,9 @@ function Thing({ i, thing }: I) {
       className={{ done: thing.isDone }}
       display="flex"
       draggable
-      onDragEnd={onDragEnd(i)}
-      onDragOver={onDragOver(i)}
-      onDragStart={onDragStart(i)}
+      onDragEnd={e => onDragEnd(e, i)}
+      onDragOver={e => onDragOver(e, i)}
+      onDragStart={e => onDragStart(e, i)}
       spaceX="4"
     >
       <div
@@ -73,7 +67,7 @@ function Thing({ i, thing }: I) {
         cursor="pointer"
         fontWeight={thing.isDone && '600'}
         lineHeight="1"
-        onClick={onDone(i)}
+        onClick={e => onDone(e, i)}
         opacity={thing.isDone ? '100' : '50'}
         p="2"
       >
@@ -84,12 +78,12 @@ function Thing({ i, thing }: I) {
         defaultValue={thing.key}
         fontWeight={thing.isDone && '600'}
         lineHeight="1"
-        onKeyDown={onUpdate(i)}
+        onKeyDown={e => onUpdate(e, i)}
         p="2"
         type="text"
         width="100"
       />
-      <div cursor="pointer" fontWeight="600" lineHeight="1" onClick={onDelete(i)} p="2">
+      <div cursor="pointer" fontWeight="600" lineHeight="1" onClick={e => onDelete(e, i)} p="2">
         {'\u2717'}
       </div>
     </div>
