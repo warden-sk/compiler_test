@@ -19,6 +19,8 @@ function compiler(code) {
       assets: ['./index.css', './index.js'],
       cache,
       outputPath: './public',
+      publicPath:
+        process.env.NODE_ENV === 'production' ? 'https://warden-sk.github.io/compiler_test/public' : undefined,
       reportErrors: true,
       useServer: true,
       useTransformers: true,
