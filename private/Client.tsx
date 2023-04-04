@@ -2,7 +2,6 @@ import React from 'react';
 import './Client.css';
 import decodeThings from './helpers/decodeThings';
 import encodeThings from './helpers/encodeThings';
-import useDraggable from './helpers/useDraggable';
 import Input from './Input';
 import Thing from './Thing';
 
@@ -13,8 +12,6 @@ export interface ThingType {
 
 function Client() {
   const [things, setThings] = React.useState<ThingType[]>([]);
-
-  const { onDragEnd, onDragOver, onDragStart } = useDraggable({ setThings, things });
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
@@ -43,6 +40,8 @@ function Client() {
       e.currentTarget.value = '';
     }
   }
+
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   return (
     <div className="container" mX="auto">

@@ -5,6 +5,7 @@ import useDraggable from './helpers/useDraggable';
 
 interface P {
   i: number;
+  key: number;
   setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
   thing: ThingType;
   things: ThingType[];
