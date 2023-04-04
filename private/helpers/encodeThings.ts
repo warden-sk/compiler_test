@@ -9,11 +9,7 @@ import type { Thing } from '../Client';
  * To "false,Thing 1;true,Thing 2"
  */
 function encodeThings(things: Thing[]): string {
-  return things.reduce(($, thing, i) => {
-    const text = `${thing.isDone},${thing.key}`;
-
-    return i === 0 ? text : `${$};${text}`;
-  }, '');
+  return things.reduce(($, thing, i) => `${i ? `${$};` : ''}${thing.isDone},${thing.key}`, '');
 }
 
 export default encodeThings;
