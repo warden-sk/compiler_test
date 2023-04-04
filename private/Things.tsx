@@ -5,7 +5,7 @@ import Input from './Input';
 import Thing from './Thing';
 
 function Things() {
-  const { onDragEnd, onDragOver, onDragStart } = useDraggable();
+  const draggable = useDraggable();
   const { things } = React.useContext(context);
 
   return (
@@ -14,14 +14,7 @@ function Things() {
         <Input />
         <div spaceY="2">
           {things.map((thing, i) => (
-            <Thing
-              i={i}
-              key={thing.key}
-              onDragEnd={onDragEnd}
-              onDragOver={onDragOver}
-              onDragStart={onDragStart}
-              thing={thing}
-            />
+            <Thing {...draggable} i={i} key={thing.key} thing={thing} />
           ))}
         </div>
       </div>

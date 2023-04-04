@@ -1,13 +1,13 @@
 import type { ThingType } from '../Client';
 
-const pattern = /(0|1),([^;]+)/g;
+const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
 
 /**
- * From "0,Thing 1;1,Thing 2"
+ * From "0,0,Thing 1;0,1,Thing 2"
  *
  * To [
- *   { isDone: false, key: 'Thing 1' },
- *   { isDone: true, key: 'Thing 2' },
+ *   { createdAt: Date, isDone: false, key: 'Thing 1' },
+ *   { createdAt: Date, isDone: true, key: 'Thing 2' },
  * ]
  */
 function decodeThings(things: string): ThingType[] {
@@ -15,7 +15,7 @@ function decodeThings(things: string): ThingType[] {
   let decodedThings: ThingType[] = [];
 
   while (($ = pattern.exec(things)) !== null) {
-    decodedThings = [...decodedThings, { isDone: $[1] === '1', key: $[2] }];
+    decodedThings = [...decodedThings, { createdAt: new Date(+$[1]), isDone: $[2] === '1', key: $[3] }];
   }
 
   return decodedThings;
