@@ -1,9 +1,9 @@
 import type { Thing } from '../Client';
 
-const pattern = /(false|true),([^;]+)/g;
+const pattern = /(0|1),([^;]+)/g;
 
 /**
- * From "false,Thing 1;true,Thing 2"
+ * From "0,Thing 1;1,Thing 2"
  *
  * To [
  *   { isDone: false, key: 'Thing 1' },
@@ -15,7 +15,7 @@ function decodeThings(things: string): Thing[] {
   let decodedThings: Thing[] = [];
 
   while (($ = pattern.exec(things)) !== null) {
-    decodedThings = [...decodedThings, { isDone: $[1] === 'true', key: $[2] }];
+    decodedThings = [...decodedThings, { isDone: $[1] === '1', key: $[2] }];
   }
 
   return decodedThings;

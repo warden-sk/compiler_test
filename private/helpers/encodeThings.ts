@@ -6,10 +6,10 @@ import type { Thing } from '../Client';
  *   { isDone: true, key: 'Thing 2' },
  * ]
  *
- * To "false,Thing 1;true,Thing 2"
+ * To "0,Thing 1;1,Thing 2"
  */
 function encodeThings(things: Thing[]): string {
-  return things.reduce(($, thing, i) => `${i ? `${$};` : ''}${thing.isDone},${thing.key}`, '');
+  return things.reduce(($, thing, i) => `${i ? `${$};` : ''}${thing.isDone ? 1 : 0},${thing.key}`, '');
 }
 
 export default encodeThings;
