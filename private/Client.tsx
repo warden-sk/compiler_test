@@ -11,15 +11,15 @@ export interface Thing {
 }
 
 function Client() {
-  const [things, updateThings] = React.useState<Thing[]>([]);
+  const [things, setThings] = React.useState<Thing[]>([]);
 
-  const { onDragEnd, onDragOver, onDragStart } = useDraggable({ things, updateThings });
+  const { onDragEnd, onDragOver, onDragStart } = useDraggable({ setThings, things });
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
 
     if (things) {
-      updateThings(decodeThings(things));
+      setThings(decodeThings(things));
     }
   }, []);
 
@@ -31,7 +31,7 @@ function Client() {
 
   function onDelete(i: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
-      updateThings(things => {
+      setThings(things => {
         return things.filter((thing, j) => {
           return j !== i;
         });
@@ -41,7 +41,7 @@ function Client() {
 
   function onDone(i: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
-      updateThings(things => {
+      setThings(things => {
         return things.map((thing, j) => {
           if (j === i) {
             return { ...thing, isDone: !thing.isDone };
@@ -57,7 +57,7 @@ function Client() {
     if (e.key === 'Enter') {
       const key: string = e.currentTarget.value;
 
-      updateThings(things => {
+      setThings(things => {
         const newThing = { isDone: false, key };
 
         return [...things, newThing];
@@ -72,7 +72,7 @@ function Client() {
       if (e.key === 'Enter') {
         const key: string = e.currentTarget.value;
 
-        updateThings(things => {
+        setThings(things => {
           return things.map((thing, j) => {
             if (j === i) {
               return { ...thing, key };
