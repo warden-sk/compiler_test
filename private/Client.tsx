@@ -11,6 +11,7 @@ export interface ThingType {
 }
 
 function Client() {
+  const [currentThingI, setCurrentThingI] = React.useState<number>();
   const [things, setThings] = React.useState<ThingType[]>([]);
 
   React.useEffect(() => {
@@ -49,7 +50,15 @@ function Client() {
         <Input onKeyDown={onKeyDown} />
         <div spaceY="2">
           {things.map((thing, i) => (
-            <Thing i={i} key={i} setThings={setThings} thing={thing} things={things} />
+            <Thing
+              currentThingI={currentThingI}
+              i={i}
+              key={i}
+              setCurrentThingI={setCurrentThingI}
+              setThings={setThings}
+              thing={thing}
+              things={things}
+            />
           ))}
         </div>
       </div>

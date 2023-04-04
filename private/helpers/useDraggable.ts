@@ -2,16 +2,16 @@ import React from 'react';
 import type { ThingType } from '../Client';
 
 interface P {
+  currentThingI: number | undefined;
+  setCurrentThingI: React.Dispatch<React.SetStateAction<number | undefined>>;
   setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
   things: ThingType[];
 }
 
-function useDraggable({ setThings, things }: P) {
-  const [$, set] = React.useState<[number, HTMLDivElement]>();
-
+function useDraggable({ currentThingI, setCurrentThingI, setThings, things }: P) {
   const onDragEnd = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      set(undefined);
+      setCurrentThingI(undefined);
     };
   }, []);
 
@@ -20,24 +20,24 @@ function useDraggable({ setThings, things }: P) {
       return (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
 
-        if ($ && $[1] !== e.currentTarget) {
+        if (currentThingI !== i) {
           const newThings = [...things];
 
-          newThings.splice($[0], 1);
-          newThings.splice(i, 0, things[$[0]]);
+          newThings.splice(currentThingI, 1);
+          newThings.splice(i, 0, things[currentThingI]);
 
-          set([i, $[1]]);
+          setCurrentThingI(i);
 
           setThings(newThings);
         }
       };
     },
-    [$, setThings, things]
+    [currentThingI, setThings, things]
   );
 
   const onDragStart = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      set([i, e.currentTarget]);
+      setCurrentThingI(i);
     };
   }, []);
 
