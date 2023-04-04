@@ -12,6 +12,9 @@ export interface Thing {
 function Client() {
   const [things, updateThings] = React.useState<Thing[]>([]);
 
+  const [draggingIndex, setDraggingIndex] = React.useState<number>();
+  const [draggingThing, setDraggingThing] = React.useState<HTMLDivElement>();
+
   React.useEffect(() => {
     const things = localStorage.getItem('things');
 
@@ -82,13 +85,60 @@ function Client() {
     };
   }
 
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+  function onDragEnd(i: number) {
+    return (e: React.DragEvent<HTMLDivElement>) => {
+      setDraggingIndex(undefined);
+      setDraggingThing(undefined);
+    };
+  }
+
+  function onDragOver(i: number) {
+    return (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+
+      const draggedOverItem = e.currentTarget;
+
+      if (draggingThing !== draggedOverItem) {
+        const newThings = [...things];
+
+        newThings.splice(draggingIndex!, 1);
+        newThings.splice(i, 0, things[draggingIndex!]);
+
+        setDraggingIndex(i);
+
+        updateThings(newThings);
+      }
+    };
+  }
+
+  function onDragStart(i: number) {
+    return (e: React.DragEvent<HTMLDivElement>) => {
+      setDraggingIndex(i);
+      setDraggingThing(e.currentTarget);
+
+      e.dataTransfer.effectAllowed = 'move';
+    };
+  }
+
   return (
     <div className="container" mX="auto">
       <div p="4" spaceY="4">
         <Input onKeyDown={onKeyDown} />
         <div spaceY="2">
           {things.map(({ isDone, key }, i) => (
-            <div alignItems="center" className={{ done: isDone }} display="flex" key={key} spaceX="4">
+            <div
+              alignItems="center"
+              className={{ done: isDone }}
+              display="flex"
+              draggable
+              key={key}
+              onDragEnd={onDragEnd(i)}
+              onDragOver={onDragOver(i)}
+              onDragStart={onDragStart(i)}
+              spaceX="4"
+            >
               <div
                 border="2"
                 borderRadius="2"
