@@ -1,7 +1,8 @@
 import type { Thing } from '../Client';
 
+const pattern = /(false|true),([^;]+)/g;
+
 function decodeThings(things: string): Thing[] {
-  const pattern = /(false|true),([^;]+)/g;
   let $;
   let decodedThings: Thing[] = [];
 
