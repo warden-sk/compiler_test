@@ -116,10 +116,15 @@ function Client() {
               >
                 {'\u2713'}
               </div>
-              <div fontWeight={isDone && '600'} width="100">
-                <input border="0" defaultValue={key} onKeyDown={onUpdate(i)} type="text" width="100" />
-              </div>
-              <div fontWeight="600" lineHeight="1" onClick={onDelete(i)} p="2">
+              <input
+                border="0"
+                defaultValue={key}
+                fontWeight={isDone && '600'}
+                onKeyDown={onUpdate(i)}
+                type="text"
+                width="100"
+              />
+              <div cursor="pointer" fontWeight="600" lineHeight="1" onClick={onDelete(i)} p="2">
                 {'\u2717'}
               </div>
             </div>
