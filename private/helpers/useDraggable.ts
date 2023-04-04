@@ -7,13 +7,11 @@ interface P {
 }
 
 function useDraggable({ setThings, things }: P) {
-  const [draggingIndex, setDraggingIndex] = React.useState<number>();
-  const [draggingThing, setDraggingThing] = React.useState<HTMLDivElement>();
+  const [$, set] = React.useState<[number, HTMLDivElement]>();
 
   const onDragEnd = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      setDraggingIndex(undefined);
-      setDraggingThing(undefined);
+      set(undefined);
     };
   }, []);
 
@@ -22,29 +20,24 @@ function useDraggable({ setThings, things }: P) {
       return (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
 
-        const draggedOverItem = e.currentTarget;
-
-        if (draggedOverItem !== draggingThing) {
+        if ($ && $[1] !== e.currentTarget) {
           const newThings = [...things];
 
-          newThings.splice(draggingIndex!, 1);
-          newThings.splice(i, 0, things[draggingIndex!]);
+          newThings.splice($[0], 1);
+          newThings.splice(i, 0, things[$[0]]);
 
-          setDraggingIndex(i);
+          set([i, $[1]]);
 
           setThings(newThings);
         }
       };
     },
-    [draggingIndex, draggingThing, setThings, things]
+    [$, setThings, things]
   );
 
   const onDragStart = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      setDraggingIndex(i);
-      setDraggingThing(e.currentTarget);
-
-      e.dataTransfer.effectAllowed = 'move';
+      set([i, e.currentTarget]);
     };
   }, []);
 
