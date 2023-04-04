@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 const compiler = webpack({
   entry: path.resolve('./private/index.tsx'),
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   module: {
     rules: [
       {
