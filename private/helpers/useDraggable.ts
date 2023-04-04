@@ -1,14 +1,11 @@
 import React from 'react';
-import type { ThingType } from '../Client';
-
-interface P {
-  setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
-  things: ThingType[];
-}
+import context from '../context';
 
 let currentThingI = -1;
 
-function useDraggable({ setThings, things }: P) {
+function useDraggable() {
+  const { setThings, things } = React.useContext(context);
+
   const onDragEnd = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
       currentThingI = -1;

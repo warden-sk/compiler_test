@@ -1,5 +1,6 @@
 import React from 'react';
 import './Client.css';
+import context from './context';
 import decodeThings from './helpers/decodeThings';
 import encodeThings from './helpers/encodeThings';
 import Input from './Input';
@@ -44,16 +45,18 @@ function Client() {
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   return (
-    <div className="container" mX="auto">
-      <div p="4" spaceY="4">
-        <Input onKeyDown={onKeyDown} />
-        <div spaceY="2">
-          {things.map((thing, i) => (
-            <Thing i={i} key={i} setThings={setThings} thing={thing} things={things} />
-          ))}
+    <context.Provider value={{ setThings, things }}>
+      <div className="container" mX="auto">
+        <div p="4" spaceY="4">
+          <Input onKeyDown={onKeyDown} />
+          <div spaceY="2">
+            {things.map((thing, i) => (
+              <Thing i={i} key={i} thing={thing} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </context.Provider>
   );
 }
 
