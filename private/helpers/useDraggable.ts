@@ -1,9 +1,9 @@
 import React from 'react';
-import type { Thing } from '../Client';
+import type { ThingType } from '../Client';
 
 interface P {
-  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
-  things: Thing[];
+  setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
+  things: ThingType[];
 }
 
 function useDraggable({ setThings, things }: P) {

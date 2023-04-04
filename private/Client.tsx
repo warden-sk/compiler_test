@@ -4,14 +4,15 @@ import decodeThings from './helpers/decodeThings';
 import encodeThings from './helpers/encodeThings';
 import useDraggable from './helpers/useDraggable';
 import Input from './Input';
+import Thing from './Thing';
 
-export interface Thing {
+export interface ThingType {
   isDone: boolean;
   key: string;
 }
 
 function Client() {
-  const [things, setThings] = React.useState<Thing[]>([]);
+  const [things, setThings] = React.useState<ThingType[]>([]);
 
   const { onDragEnd, onDragOver, onDragStart } = useDraggable({ setThings, things });
 
@@ -29,30 +30,6 @@ function Client() {
 
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-  function onDelete(i: number) {
-    return (e: React.MouseEvent<HTMLDivElement>) => {
-      setThings(things => {
-        return things.filter((thing, j) => {
-          return j !== i;
-        });
-      });
-    };
-  }
-
-  function onDone(i: number) {
-    return (e: React.MouseEvent<HTMLDivElement>) => {
-      setThings(things => {
-        return things.map((thing, j) => {
-          if (j === i) {
-            return { ...thing, isDone: !thing.isDone };
-          } else {
-            return thing;
-          }
-        });
-      });
-    };
-  }
-
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
       const key: string = e.currentTarget.value;
@@ -67,69 +44,13 @@ function Client() {
     }
   }
 
-  function onUpdate(i: number) {
-    return (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        const key: string = e.currentTarget.value;
-
-        setThings(things => {
-          return things.map((thing, j) => {
-            if (j === i) {
-              return { ...thing, key };
-            } else {
-              return thing;
-            }
-          });
-        });
-      }
-    };
-  }
-
-  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
-
   return (
     <div className="container" mX="auto">
       <div p="4" spaceY="4">
         <Input onKeyDown={onKeyDown} />
         <div spaceY="2">
-          {things.map(({ isDone, key }, i) => (
-            <div
-              alignItems="center"
-              className={{ done: isDone }}
-              display="flex"
-              draggable
-              key={key}
-              onDragEnd={onDragEnd(i)}
-              onDragOver={onDragOver(i)}
-              onDragStart={onDragStart(i)}
-              spaceX="4"
-            >
-              <div
-                border="2"
-                borderRadius="2"
-                cursor="pointer"
-                fontWeight={isDone && '600'}
-                lineHeight="1"
-                onClick={onDone(i)}
-                opacity={isDone ? '100' : '50'}
-                p="2"
-              >
-                {'\u2713'}
-              </div>
-              <input
-                border="0"
-                defaultValue={key}
-                fontWeight={isDone && '600'}
-                lineHeight="1"
-                onKeyDown={onUpdate(i)}
-                p="2"
-                type="text"
-                width="100"
-              />
-              <div cursor="pointer" fontWeight="600" lineHeight="1" onClick={onDelete(i)} p="2">
-                {'\u2717'}
-              </div>
-            </div>
+          {things.map((thing, i) => (
+            <Thing i={i} key={i} setThings={setThings} thing={thing} things={things} />
           ))}
         </div>
       </div>

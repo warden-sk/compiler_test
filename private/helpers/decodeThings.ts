@@ -1,4 +1,4 @@
-import type { Thing } from '../Client';
+import type { ThingType } from '../Client';
 
 const pattern = /(0|1),([^;]+)/g;
 
@@ -10,9 +10,9 @@ const pattern = /(0|1),([^;]+)/g;
  *   { isDone: true, key: 'Thing 2' },
  * ]
  */
-function decodeThings(things: string): Thing[] {
+function decodeThings(things: string): ThingType[] {
   let $;
-  let decodedThings: Thing[] = [];
+  let decodedThings: ThingType[] = [];
 
   while (($ = pattern.exec(things)) !== null) {
     decodedThings = [...decodedThings, { isDone: $[1] === '1', key: $[2] }];
