@@ -7,8 +7,42 @@ interface Thing {
   key: string;
 }
 
+function decodeThings(things: string): Thing[] {
+  const pattern = /(false|true),([^;]+)/g;
+  let $;
+  let decodedThings: Thing[] = [];
+
+  while (($ = pattern.exec(things)) !== null) {
+    decodedThings = [...decodedThings, { isDone: $[1] === 'true', key: $[2] }];
+  }
+
+  return decodedThings;
+}
+
+function encodeThings(things: Thing[]): string {
+  return things.reduce(($, thing, i) => {
+    const text = `${thing.isDone},${thing.key}`;
+
+    return i === 0 ? text : `${$};${text}`;
+  }, '');
+}
+
 function Client() {
   const [things, updateThings] = React.useState<Thing[]>([]);
+
+  React.useEffect(() => {
+    const things = localStorage.getItem('things');
+
+    if (things) {
+      updateThings(decodeThings(things));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('things', encodeThings(things));
+  }, [encodeThings(things)]);
+
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   function onDelete(i: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
@@ -22,11 +56,11 @@ function Client() {
     };
   }
 
-  function onDone(key: string) {
+  function onDone(i: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
       updateThings(things => {
-        return things.map(thing => {
-          if (thing.key === key) {
+        return things.map((thing, j) => {
+          if (j === i) {
             return { ...thing, isDone: !thing.isDone };
           } else {
             return thing;
@@ -56,12 +90,19 @@ function Client() {
         <Input onKeyDown={onKeyDown} />
         <div spaceY="2">
           {things.map(({ isDone, key }, i) => (
-            <div alignItems="center" cursor="pointer" display="flex" key={key} onClick={onDone(key)} spaceX="4">
+            <div
+              alignItems="center"
+              className={{ done: isDone }}
+              cursor="pointer"
+              display="flex"
+              key={key}
+              onClick={onDone(i)}
+              spaceX="4"
+            >
               <div
                 border="2"
                 borderRadius="2"
-                className={{ done: isDone }}
-                fontWeight="600"
+                fontWeight={isDone && '600'}
                 lineHeight="1"
                 opacity={isDone ? '100' : '50'}
                 p="2"
