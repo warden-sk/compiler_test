@@ -1,10 +1,12 @@
 import React from 'react';
 import type { ThingType } from './Client';
 
-interface Context {
+interface ThingsContext {
   setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
   things: ThingType[];
 }
+
+interface Context extends ThingsContext {}
 
 const context = React.createContext<Context>({} as Context);
 
