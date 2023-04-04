@@ -30,7 +30,7 @@ function Client() {
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      const key: string = e.currentTarget.value;
+      const key = e.currentTarget.value;
 
       setThings(things => {
         const newThing = { isDone: false, key };
@@ -51,7 +51,7 @@ function Client() {
           <Input onKeyDown={onKeyDown} />
           <div spaceY="2">
             {things.map((thing, i) => (
-              <Thing i={i} key={i} thing={thing} />
+              <Thing i={i} thing={thing} />
             ))}
           </div>
         </div>

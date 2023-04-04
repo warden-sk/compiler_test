@@ -6,7 +6,6 @@ import useDraggable from './helpers/useDraggable';
 
 interface I {
   i: number;
-  key: number;
   thing: ThingType;
 }
 
