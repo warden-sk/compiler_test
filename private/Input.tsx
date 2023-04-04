@@ -1,10 +1,23 @@
 import React from 'react';
+import context from './context';
 
-interface P {
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-}
+function Input() {
+  const { setThings } = React.useContext(context);
 
-function Input({ onKeyDown }: P) {
+  function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      const key = e.currentTarget.value;
+
+      setThings(things => {
+        const newThing = { isDone: false, key };
+
+        return [...things, newThing];
+      });
+
+      e.currentTarget.value = '';
+    }
+  }
+
   return (
     <div>
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="input" mB="2">
