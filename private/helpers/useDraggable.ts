@@ -12,15 +12,11 @@ function useDraggable(): O {
   const { setThings, things } = React.useContext(context);
 
   const onDragEnd = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
-    console.log(`onDragEnd at ${i}`);
-
     setCurrentThingI(undefined);
   }, []);
 
   const onDragOver = React.useCallback(
     (e: React.DragEvent<HTMLDivElement>, i: number) => {
-      console.log(`onDragOver at ${i}`);
-
       e.preventDefault();
 
       if (currentThingI !== i) {
@@ -33,12 +29,10 @@ function useDraggable(): O {
         setCurrentThingI(i);
       }
     },
-    [setThings, things]
+    [currentThingI, setThings, things]
   );
 
   const onDragStart = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
-    console.log(`onDragStart at ${i}`);
-
     setCurrentThingI(i);
   }, []);
 
