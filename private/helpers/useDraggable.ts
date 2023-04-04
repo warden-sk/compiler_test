@@ -1,15 +1,20 @@
 import React from 'react';
 import context from '../context';
 
-let currentThingI: number | undefined;
+interface O {
+  onDragEnd: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
+  onDragOver: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
+  onDragStart: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
+}
 
-function useDraggable() {
+function useDraggable(): O {
+  const [currentThingI, setCurrentThingI] = React.useState<number>();
   const { setThings, things } = React.useContext(context);
 
   const onDragEnd = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
     console.log(`onDragEnd at ${i}`);
 
-    currentThingI = undefined;
+    setCurrentThingI(undefined);
   }, []);
 
   const onDragOver = React.useCallback(
@@ -25,7 +30,7 @@ function useDraggable() {
 
         setThings(newThings);
 
-        currentThingI = i;
+        setCurrentThingI(i);
       }
     },
     [setThings, things]
@@ -34,7 +39,7 @@ function useDraggable() {
   const onDragStart = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
     console.log(`onDragStart at ${i}`);
 
-    currentThingI = i;
+    setCurrentThingI(i);
   }, []);
 
   return { onDragEnd, onDragOver, onDragStart };

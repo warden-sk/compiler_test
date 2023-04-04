@@ -2,16 +2,17 @@ import React from 'react';
 import type { ThingType } from './Client';
 import './Client.css';
 import context from './context';
-import useDraggable from './helpers/useDraggable';
 
 interface I {
   i: number;
   key: string;
+  onDragEnd: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
+  onDragOver: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
+  onDragStart: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
   thing: ThingType;
 }
 
-function Thing({ i, thing }: I) {
-  const { onDragEnd, onDragOver, onDragStart } = useDraggable();
+function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: I) {
   const { setThings } = React.useContext(context);
 
   function onDelete(e: React.MouseEvent<HTMLDivElement>, j: number) {

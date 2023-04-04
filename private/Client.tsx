@@ -3,6 +3,7 @@ import './Client.css';
 import context from './context';
 import decodeThings from './helpers/decodeThings';
 import encodeThings from './helpers/encodeThings';
+import useDraggable from './helpers/useDraggable';
 import Input from './Input';
 import Thing from './Thing';
 
@@ -13,6 +14,7 @@ export interface ThingType {
 
 function Client() {
   const [things, setThings] = React.useState<ThingType[]>([]);
+  const draggable = useDraggable();
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
@@ -51,7 +53,7 @@ function Client() {
           <Input onKeyDown={onKeyDown} />
           <div spaceY="2">
             {things.map((thing, i) => (
-              <Thing i={i} key={thing.key} thing={thing} />
+              <Thing {...draggable} i={i} key={thing.key} thing={thing} />
             ))}
           </div>
         </div>
