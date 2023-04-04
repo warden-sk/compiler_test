@@ -120,7 +120,9 @@ function Client() {
                 border="0"
                 defaultValue={key}
                 fontWeight={isDone && '600'}
+                lineHeight="1"
                 onKeyDown={onUpdate(i)}
+                p="2"
                 type="text"
                 width="100"
               />
