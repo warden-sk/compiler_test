@@ -3,9 +3,7 @@ import './Client.css';
 import context from './context';
 import decodeThings from './helpers/decodeThings';
 import encodeThings from './helpers/encodeThings';
-import useDraggable from './helpers/useDraggable';
-import Input from './Input';
-import Thing from './Thing';
+import Things from './Things';
 
 export interface ThingType {
   isDone: boolean;
@@ -14,7 +12,6 @@ export interface ThingType {
 
 function Client() {
   const [things, setThings] = React.useState<ThingType[]>([]);
-  const draggable = useDraggable();
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
@@ -28,36 +25,9 @@ function Client() {
     localStorage.setItem('things', encodeThings(things));
   }, [encodeThings(things)]);
 
-  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
-
-  function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') {
-      const key = e.currentTarget.value;
-
-      setThings(things => {
-        const newThing = { isDone: false, key };
-
-        return [...things, newThing];
-      });
-
-      e.currentTarget.value = '';
-    }
-  }
-
-  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
-
   return (
     <context.Provider value={{ setThings, things }}>
-      <div className="container" mX="auto">
-        <div p="4" spaceY="4">
-          <Input onKeyDown={onKeyDown} />
-          <div spaceY="2">
-            {things.map((thing, i) => (
-              <Thing {...draggable} i={i} key={thing.key} thing={thing} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Things />
     </context.Provider>
   );
 }
