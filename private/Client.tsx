@@ -1,30 +1,12 @@
 import React from 'react';
 import './Client.css';
+import decodeThings from './helpers/decodeThings';
+import encodeThings from './helpers/encodeThings';
 import Input from './Input';
 
-interface Thing {
+export interface Thing {
   isDone: boolean;
   key: string;
-}
-
-function decodeThings(things: string): Thing[] {
-  const pattern = /(false|true),([^;]+)/g;
-  let $;
-  let decodedThings: Thing[] = [];
-
-  while (($ = pattern.exec(things)) !== null) {
-    decodedThings = [...decodedThings, { isDone: $[1] === 'true', key: $[2] }];
-  }
-
-  return decodedThings;
-}
-
-function encodeThings(things: Thing[]): string {
-  return things.reduce(($, thing, i) => {
-    const text = `${thing.isDone},${thing.key}`;
-
-    return i === 0 ? text : `${$};${text}`;
-  }, '');
 }
 
 function Client() {
