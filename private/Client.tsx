@@ -6,6 +6,7 @@ import encodeThings from './helpers/encodeThings';
 import Things from './Things';
 
 export interface ThingType {
+  createdAt: Date;
   isDone: boolean;
   key: string;
 }

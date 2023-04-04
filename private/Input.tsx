@@ -9,7 +9,7 @@ function Input() {
       const key = e.currentTarget.value;
 
       setThings(things => {
-        const newThing = { isDone: false, key };
+        const newThing = { createdAt: new Date(), isDone: false, key };
 
         return [...things, newThing];
       });
