@@ -51,7 +51,7 @@ function Client() {
           <Input onKeyDown={onKeyDown} />
           <div spaceY="2">
             {things.map((thing, i) => (
-              <Thing i={i} thing={thing} />
+              <Thing i={i} key={thing.key} thing={thing} />
             ))}
           </div>
         </div>

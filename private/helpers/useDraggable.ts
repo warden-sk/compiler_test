@@ -8,6 +8,8 @@ function useDraggable() {
 
   const onDragEnd = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
+      console.log(`onDragEnd at ${i}`);
+
       currentThingI = -1;
     };
   }, []);
@@ -15,6 +17,8 @@ function useDraggable() {
   const onDragOver = React.useCallback(
     (i: number) => {
       return (e: React.DragEvent<HTMLDivElement>) => {
+        console.log(`onDragOver at ${i}`);
+
         e.preventDefault();
 
         if (currentThingI !== i) {
@@ -34,6 +38,8 @@ function useDraggable() {
 
   const onDragStart = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
+      console.log(`onDragStart at ${i}`);
+
       currentThingI = i;
     };
   }, []);
