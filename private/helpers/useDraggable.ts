@@ -20,7 +20,6 @@ function useDraggable() {
 
       if (currentThingI !== i) {
         const newThings = [...things];
-
         newThings.splice(currentThingI!, 1);
         newThings.splice(i, 0, things[currentThingI!]);
 
