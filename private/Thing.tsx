@@ -4,17 +4,15 @@ import './Client.css';
 import useDraggable from './helpers/useDraggable';
 
 interface P {
-  currentThingI: number | undefined;
   i: number;
   key: number;
-  setCurrentThingI: React.Dispatch<React.SetStateAction<number | undefined>>;
   setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
   thing: ThingType;
   things: ThingType[];
 }
 
-function Thing({ currentThingI, i, setCurrentThingI, setThings, thing, things }: P) {
-  const { onDragEnd, onDragOver, onDragStart } = useDraggable({ currentThingI, setCurrentThingI, setThings, things });
+function Thing({ i, setThings, thing, things }: P) {
+  const { onDragEnd, onDragOver, onDragStart } = useDraggable({ setThings, things });
 
   function onDelete(j: number) {
     return (e: React.MouseEvent<HTMLDivElement>) => {
@@ -64,7 +62,6 @@ function Thing({ currentThingI, i, setCurrentThingI, setThings, thing, things }:
       className={{ done: thing.isDone }}
       display="flex"
       draggable
-      key={thing.key}
       onDragEnd={onDragEnd(i)}
       onDragOver={onDragOver(i)}
       onDragStart={onDragStart(i)}

@@ -2,16 +2,16 @@ import React from 'react';
 import type { ThingType } from '../Client';
 
 interface P {
-  currentThingI: number | undefined;
-  setCurrentThingI: React.Dispatch<React.SetStateAction<number | undefined>>;
   setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
   things: ThingType[];
 }
 
-function useDraggable({ currentThingI, setCurrentThingI, setThings, things }: P) {
+let currentThingI = -1;
+
+function useDraggable({ setThings, things }: P) {
   const onDragEnd = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      setCurrentThingI(undefined);
+      currentThingI = -1;
     };
   }, []);
 
@@ -26,18 +26,18 @@ function useDraggable({ currentThingI, setCurrentThingI, setThings, things }: P)
           newThings.splice(currentThingI, 1);
           newThings.splice(i, 0, things[currentThingI]);
 
-          setCurrentThingI(i);
+          currentThingI = i;
 
           setThings(newThings);
         }
       };
     },
-    [currentThingI, setThings, things]
+    [setThings, things]
   );
 
   const onDragStart = React.useCallback((i: number) => {
     return (e: React.DragEvent<HTMLDivElement>) => {
-      setCurrentThingI(i);
+      currentThingI = i;
     };
   }, []);
 
