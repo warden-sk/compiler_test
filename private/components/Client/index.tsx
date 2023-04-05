@@ -27,18 +27,20 @@ function Client() {
     <context.Provider value={{ setThings, things }}>
       <div className="container" mX="auto" pX="4" pY="8">
         <div spaceY="4">
-          <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists" mB="2">
-            Lists
-          </label>
-          <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
-            <div p="2">↓</div>
-            <select border="0" id="lists" onInput={e => setList(e.currentTarget.value)} p="2" width="100">
-              {['All', 'Done', 'Not done'].map(option => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+          <div spaceY="2">
+            <label cursor="pointer" display="block" fontWeight="600" htmlFor="list">
+              Lists
+            </label>
+            <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
+              <div p="2">↓</div>
+              <select border="0" id="list" onInput={e => setList(e.currentTarget.value)} p="2" width="100">
+                {['All', 'Done', 'Not done'].map(option => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <Input />
           <Things list={list} />

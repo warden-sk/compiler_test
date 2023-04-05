@@ -17,13 +17,18 @@ function Things({ list }: { list: string }) {
     filteredThings = filteredThings.filter(thing => !thing.isDone);
   }
 
-  return (
-    <div spaceY="2">
-      {filteredThings.map((thing, i) => (
-        <Thing {...draggable} i={i} key={thing.key} thing={thing} />
-      ))}
-    </div>
-  );
+  if (filteredThings.length) {
+    return (
+      <div spaceY="4">
+        <div fontSize="8">Things</div>
+        <div spaceY="2">
+          {filteredThings.map((thing, i) => (
+            <Thing {...draggable} i={i} key={thing.key} thing={thing} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Things;

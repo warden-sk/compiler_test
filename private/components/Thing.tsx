@@ -47,7 +47,7 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       className={{ done: thing.isDone }}
       display="flex"
       draggable
-      fontWeight={thing.isDone && '600'}
+      // fontWeight={thing.isDone && '600'}
       lineHeight="1"
       onDragEnd={e => onDragEnd(e, i)}
       onDragOver={e => onDragOver(e, i)}
