@@ -13,7 +13,8 @@ function Things() {
 
   if (filteredThings.length) {
     return (
-      <div spaceY="4">
+      // move "height" elsewhere
+      <div height="100" spaceY="4" style={{ overflowY: 'auto' }}>
         <div fontSize="8">Things</div>
         <div spaceY="2">
           {filteredThings.map((thing, i) => (
