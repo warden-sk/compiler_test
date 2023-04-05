@@ -62,10 +62,12 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: I) {
       onDragStart={e => onDragStart(e, i)}
       spaceX="4"
     >
-      <div display="flex" spaceX="2">
-        <div cursor="pointer">{`\u2191`}</div>
-        <div cursor="pointer">{`\u2193`}</div>
-      </div>
+      {false && (
+        <div display="flex" spaceX="2">
+          <div cursor="pointer">{`\u2191`}</div>
+          <div cursor="pointer">{`\u2193`}</div>
+        </div>
+      )}
       <div
         border="2"
         borderRadius="2"
