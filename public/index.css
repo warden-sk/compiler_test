@@ -23,9 +23,11 @@ body {
   color: hsl(0, 0%, 6.25%);
   height: 100%;
 }
-body.🌙 {
-  background-color: hsl(0, 0%, 6.25%);
-  color: hsl(0, 0%, 93.75%);
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: hsl(0, 0%, 6.25%);
+    color: hsl(0, 0%, 93.75%);
+  }
 }
 html {
   height: 100%;
