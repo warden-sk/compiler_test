@@ -6,7 +6,9 @@ interface ThingsContext {
   things: Thing[];
 }
 
-interface Context extends ThingsContext {}
+interface Context extends ThingsContext {
+  currentList: string;
+}
 
 const context = React.createContext<Context>({} as Context);
 

@@ -8,7 +8,7 @@ import Things from '../Things';
 import './index.css';
 
 function Client() {
-  const [list, setList] = React.useState<string>('All');
+  const [currentList, setCurrentList] = React.useState<string>('All');
   const [things, setThings] = React.useState<Thing[]>([]);
 
   React.useEffect(() => {
@@ -24,16 +24,16 @@ function Client() {
   }, [encodeThings(things)]);
 
   return (
-    <context.Provider value={{ setThings, things }}>
+    <context.Provider value={{ currentList, setThings, things }}>
       <div className="container" mX="auto" pX="4" pY="8">
         <div spaceY="4">
           <div spaceY="2">
-            <label cursor="pointer" display="block" fontWeight="600" htmlFor="list">
+            <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists">
               Lists
             </label>
             <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
               <div p="2">↓</div>
-              <select border="0" id="list" onInput={e => setList(e.currentTarget.value)} p="2" width="100">
+              <select border="0" id="lists" onInput={e => setCurrentList(e.currentTarget.value)} p="2" width="100">
                 {['All', 'Done', 'Not done'].map(option => (
                   <option key={option} value={option}>
                     {option}
@@ -43,7 +43,7 @@ function Client() {
             </div>
           </div>
           <Input />
-          <Things list={list} />
+          <Things />
         </div>
       </div>
     </context.Provider>

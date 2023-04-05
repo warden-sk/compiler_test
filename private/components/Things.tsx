@@ -3,17 +3,17 @@ import context from '../helpers/context';
 import useDraggable from '../helpers/useDraggable';
 import Thing from './Thing';
 
-function Things({ list }: { list: string }) {
+function Things() {
   const draggable = useDraggable();
-  const { things } = React.useContext(context);
+  const { currentList, things } = React.useContext(context);
 
   let filteredThings = [...things];
 
-  if (list === 'Done') {
+  if (currentList === 'Done') {
     filteredThings = filteredThings.filter(thing => thing.isDone);
   }
 
-  if (list === 'Not done') {
+  if (currentList === 'Not done') {
     filteredThings = filteredThings.filter(thing => !thing.isDone);
   }
 

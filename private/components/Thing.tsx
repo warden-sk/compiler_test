@@ -27,17 +27,19 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
 
   function onUpdate(e: React.KeyboardEvent<HTMLInputElement>, j: number) {
     if (e.key === 'Enter') {
-      const key: string = e.currentTarget.value;
+      const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
-      setThings(things => {
-        return things.map((thing, k) => {
-          if (k === j) {
-            return { ...thing, key };
-          } else {
-            return thing;
-          }
+      if (key.length) {
+        setThings(things => {
+          return things.map((thing, k) => {
+            if (k === j) {
+              return { ...thing, key };
+            } else {
+              return thing;
+            }
+          });
         });
-      });
+      }
     }
   }
 
