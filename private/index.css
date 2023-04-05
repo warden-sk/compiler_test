@@ -2,10 +2,18 @@
  * Copyright 2023 Marek Kobida
  */
 
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
 body {
+  background-color: hsl(0, 0%, 93.75%);
+  color: hsl(0, 0%, 6.25%);
+  height: 100%;
+}
+body.🌙 {
   background-color: hsl(0, 0%, 6.25%);
   color: hsl(0, 0%, 93.75%);
-  height: 100%;
 }
 html {
   height: 100%;

@@ -35,8 +35,11 @@ function Client() {
           <Lists />
           <Input />
           <Things />
-          <div fontSize="2" opacity="50" textAlign="center">
-            Copyright 2023 Marek Kobida
+          <div alignItems="center" display="flex" fontSize="2" justifyContent="center" opacity="50" spaceX="2">
+            <div>Copyright 2023 Marek Kobida</div>
+            <div cursor="pointer" onClick={() => window.document.body.classList.toggle('🌙')}>
+              🌙
+            </div>
           </div>
         </div>
       </div>
