@@ -15,7 +15,7 @@ function Lists() {
         Lists
       </label>
       <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
-        <div p="2">{'\u2195'}</div>
+        <div p="2">{'\u2193'}</div>
         <select border="0" id="lists" onInput={e => setCurrentList(e.currentTarget.value)} p="2" width="100">
           {['All', 'Done', 'Not done'].map(list => {
             const filteredThings = useFilteredThings(list);
