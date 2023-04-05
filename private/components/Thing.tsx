@@ -47,12 +47,14 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       className={{ done: thing.isDone }}
       display="flex"
       draggable
+      fontWeight={thing.isDone && '600'}
+      lineHeight="1"
       onDragEnd={e => onDragEnd(e, i)}
       onDragOver={e => onDragOver(e, i)}
       onDragStart={e => onDragStart(e, i)}
       spaceX="4"
     >
-      <div display="flex" spaceX="2">
+      <div display="flex" opacity="50" spaceX="2">
         <div cursor="pointer">{`\u2191`}</div>
         <div cursor="pointer">{`\u2193`}</div>
       </div>
@@ -60,25 +62,14 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         border="2"
         borderRadius="2"
         cursor="pointer"
-        fontWeight={thing.isDone && '600'}
-        lineHeight="1"
         onClick={e => onDone(e, i)}
         opacity={thing.isDone ? '100' : '50'}
         p="2"
       >
         {'\u2713'}
       </div>
-      <input
-        border="0"
-        defaultValue={thing.key}
-        fontWeight={thing.isDone && '600'}
-        lineHeight="1"
-        onKeyDown={e => onUpdate(e, i)}
-        p="2"
-        type="text"
-        width="100"
-      />
-      <div cursor="pointer" fontWeight="600" lineHeight="1" onClick={e => onDelete(e, i)} p="2">
+      <input border="0" defaultValue={thing.key} onKeyDown={e => onUpdate(e, i)} p="2" type="text" width="100" />
+      <div cursor="pointer" onClick={e => onDelete(e, i)} opacity="50" p="2">
         {'\u2717'}
       </div>
     </div>
