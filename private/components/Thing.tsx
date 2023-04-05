@@ -1,13 +1,6 @@
 import React from 'react';
 import context from '../helpers/context';
-import type { UseDraggableOutput } from '../helpers/useDraggable';
-import type { ThingType } from './Client';
-
-interface ThingInput extends UseDraggableOutput {
-  i: number;
-  key: string;
-  thing: ThingType;
-}
+import type { ThingInput } from '../types';
 
 function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const { setThings } = React.useContext(context);

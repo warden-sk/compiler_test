@@ -1,11 +1,6 @@
 import React from 'react';
 import context from '../helpers/context';
-
-export interface UseDraggableOutput {
-  onDragEnd: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
-  onDragOver: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
-  onDragStart: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
-}
+import type { UseDraggableOutput } from '../types';
 
 function useDraggable(): UseDraggableOutput {
   const [currentThingI, setCurrentThingI] = React.useState<number>();

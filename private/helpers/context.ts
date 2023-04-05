@@ -1,9 +1,9 @@
 import React from 'react';
-import type { ThingType } from '../components/Client';
+import type { Thing } from '../types';
 
 interface ThingsContext {
-  setThings: React.Dispatch<React.SetStateAction<ThingType[]>>;
-  things: ThingType[];
+  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
+  things: Thing[];
 }
 
 interface Context extends ThingsContext {}

@@ -2,17 +2,12 @@ import React from 'react';
 import context from '../../helpers/context';
 import decodeThings from '../../helpers/decodeThings';
 import encodeThings from '../../helpers/encodeThings';
+import type { Thing } from '../../types';
 import Things from '../Things';
 import './index.css';
 
-export interface ThingType {
-  createdAt: Date;
-  isDone: boolean;
-  key: string;
-}
-
 function Client() {
-  const [things, setThings] = React.useState<ThingType[]>([]);
+  const [things, setThings] = React.useState<Thing[]>([]);
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');

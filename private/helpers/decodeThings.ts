@@ -1,4 +1,4 @@
-import type { ThingType } from '../components/Client';
+import type { Thing } from '../types';
 
 const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
 
@@ -10,9 +10,9 @@ const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
  *   { createdAt: Date, isDone: true, key: 'Thing 2' },
  * ]
  */
-function decodeThings(things: string): ThingType[] {
+function decodeThings(things: string): Thing[] {
   let $;
-  let decodedThings: ThingType[] = [];
+  let decodedThings: Thing[] = [];
 
   while (($ = pattern.exec(things)) !== null) {
     decodedThings = [...decodedThings, { createdAt: new Date(+$[1]), isDone: $[2] === '1', key: $[3] }];

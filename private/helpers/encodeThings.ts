@@ -1,4 +1,4 @@
-import type { ThingType } from '../components/Client';
+import type { Thing } from '../types';
 
 /**
  * From [
@@ -8,7 +8,7 @@ import type { ThingType } from '../components/Client';
  *
  * To "0,0,Thing 1;0,1,Thing 2"
  */
-function encodeThings(things: ThingType[]): string {
+function encodeThings(things: Thing[]): string {
   return things.reduce(($, thing, i) => {
     const createdAt: number = +thing.createdAt;
     const isDone: number = thing.isDone ? 1 : 0;
