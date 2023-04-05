@@ -11,4 +11,4 @@ if (typeof window !== 'undefined') {
   ReactDOM.createRoot(window.document.querySelector('#client')!).render(<Client />);
 }
 
-export default <div id="client" />;
+export default <div height="100" id="client" />;

@@ -30,11 +30,14 @@ function Client() {
 
   return (
     <context.Provider value={{ currentList, setCurrentList, setThings, things }}>
-      <div className="container" mX="auto" pX="4" pY="8">
-        <div spaceY="4">
+      <div className="container" height="100" mX="auto" p="4">
+        <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />
           <Input />
           <Things />
+          <div fontSize="2" opacity="50" textAlign="center">
+            Copyright 2023 Marek Kobida
+          </div>
         </div>
       </div>
     </context.Provider>
