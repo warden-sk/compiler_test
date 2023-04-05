@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Marek Kobida
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Client from './components/Client';

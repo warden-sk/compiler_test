@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Marek Kobida
+ */
+
 import type { Thing } from '../types';
 
 const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
