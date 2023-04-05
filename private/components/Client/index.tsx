@@ -1,9 +1,9 @@
 import React from 'react';
-import context from '../helpers/context';
-import decodeThings from '../helpers/decodeThings';
-import encodeThings from '../helpers/encodeThings';
+import context from '../../helpers/context';
+import decodeThings from '../../helpers/decodeThings';
+import encodeThings from '../../helpers/encodeThings';
+import Things from '../Things';
 import './Client.css';
-import Things from './Things';
 
 export interface ThingType {
   createdAt: Date;
