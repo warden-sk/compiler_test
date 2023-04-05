@@ -6,3 +6,9 @@
   border-color: hsl(120, 100%, 25%);
   color: hsl(120, 100%, 25%);
 }
+@media (prefers-color-scheme: dark) {
+  .done {
+    border-color: hsl(120, 100%, 75%);
+    color: hsl(120, 100%, 75%);
+  }
+}
