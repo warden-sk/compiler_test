@@ -53,7 +53,6 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       className={{ done: thing.isDone }}
       display="flex"
       draggable
-      // fontWeight={thing.isDone && '600'}
       lineHeight="1"
       onDragEnd={e => onDragEnd(e, i)}
       onDragOver={e => onDragOver(e, i)}
@@ -69,7 +68,7 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         borderRadius="2"
         cursor="pointer"
         onClick={e => onDone(e, i)}
-        opacity={thing.isDone ? '100' : '50'}
+        opacity={!thing.isDone && '50'}
         p="2"
       >
         {'\u2713'}
