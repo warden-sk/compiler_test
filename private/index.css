@@ -2,9 +2,11 @@ body {
   background-color: hsl(0, 0%, 6.25%);
   color: hsl(0, 0%, 93.75%);
 }
-input {
+input,
+select {
   appearance: none;
   background-color: inherit;
+  border-color: hsl(0, 0%, 50%);
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -13,6 +15,8 @@ input {
   margin: 0;
   padding: 0;
 }
-#input {
-  border-color: hsl(0, 0%, 50%) !important;
+/**/
+.lists {
+  border-color: hsl(0, 0%, 50%);
+  border-style: dashed !important;
 }
