@@ -21,7 +21,8 @@ function Input() {
   return (
     <div>
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="input" mB="2">
-        What has to be done?
+        {/*'What has to be done?'*/}
+        Čo treba urobiť?
       </label>
       <input border="2" borderRadius="2" id="input" onKeyDown={onKeyDown} p="2" type="text" width="100" />
     </div>
