@@ -21,7 +21,7 @@ function compiler(code) {
       outputPath: './public',
       publicPath:
         process.env.NODE_ENV === 'production' ? 'https://warden-sk.github.io/compiler_test/public' : undefined,
-      reportErrors: true,
+      reportErrors: process.env.NODE_ENV !== 'production',
       useServer: true,
       useTransformers: true,
     });
