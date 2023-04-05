@@ -6,12 +6,12 @@ import React from 'react';
 import context from '../helpers/context';
 import type { Thing } from '../types';
 
-function useFilteredThings(list?: string): Thing[] {
+function useFilteredThings(list?: string): (Thing & { i: number })[] {
   const { currentList, things } = React.useContext(context);
 
   const $: string = list ?? currentList;
 
-  let filteredThings = [...things];
+  let filteredThings = [...things].map((thing, i) => ({ ...thing, i }));
 
   if ($ === 'Done') {
     filteredThings = filteredThings.filter(thing => thing.isDone);

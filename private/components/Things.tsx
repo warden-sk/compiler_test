@@ -19,8 +19,8 @@ function Things() {
           Things
         </div>
         <div spaceY="2">
-          {filteredThings.map((thing, i) => (
-            <Thing {...draggable} i={i} key={thing.key} thing={thing} />
+          {filteredThings.map(thing => (
+            <Thing {...draggable} i={thing.i} key={thing.key} thing={thing} />
           ))}
         </div>
       </div>
