@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Client from './Client';
+import Client from './components/Client';
 import './index.css';
 
 if (typeof window !== 'undefined') {

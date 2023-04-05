@@ -1,4 +1,4 @@
-import type { ThingType } from '../Client';
+import type { ThingType } from '../components/Client';
 
 /**
  * From [

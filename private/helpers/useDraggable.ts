@@ -1,5 +1,5 @@
 import React from 'react';
-import context from '../context';
+import context from '../helpers/context';
 
 interface O {
   onDragEnd: (e: React.DragEvent<HTMLDivElement>, i: number) => void;

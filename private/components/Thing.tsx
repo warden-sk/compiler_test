@@ -1,7 +1,7 @@
 import React from 'react';
+import context from '../helpers/context';
 import type { ThingType } from './Client';
 import './Client.css';
-import context from './context';
 
 interface I {
   i: number;

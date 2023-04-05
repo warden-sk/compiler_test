@@ -1,4 +1,4 @@
-import type { ThingType } from '../Client';
+import type { ThingType } from '../components/Client';
 
 const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
 

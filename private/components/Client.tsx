@@ -1,8 +1,8 @@
 import React from 'react';
+import context from '../helpers/context';
+import decodeThings from '../helpers/decodeThings';
+import encodeThings from '../helpers/encodeThings';
 import './Client.css';
-import context from './context';
-import decodeThings from './helpers/decodeThings';
-import encodeThings from './helpers/encodeThings';
 import Things from './Things';
 
 export interface ThingType {

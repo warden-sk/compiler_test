@@ -1,6 +1,6 @@
 import React from 'react';
-import context from './context';
-import useDraggable from './helpers/useDraggable';
+import context from '../helpers/context';
+import useDraggable from '../helpers/useDraggable';
 import Input from './Input';
 import Thing from './Thing';
 
