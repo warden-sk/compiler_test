@@ -9,7 +9,7 @@ After running this command, you should see three new files created in the `publi
 ## Output
 
 ```
-→ [00:30]
+→ [15:13]
   ____                       _       _     _     ____   ___ ____  _____
  / ___|___  _ __  _   _ _ __(_) __ _| |__ | |_  |___ \ / _ \___ \|___ /
 | |   / _ \| '_ \| | | | '__| |/ _` | '_ \| __|   __) | | | |__) | |_ \
@@ -21,57 +21,44 @@ After running this command, you should see three new files created in the `publi
 | |\/| |/ _` | '__/ _ \ |/ / | ' // _ \| '_ \| |/ _` |/ _` |
 | |  | | (_| | | |  __/   <  | . \ (_) | |_) | | (_| | (_| |
 |_|  |_|\__,_|_|  \___|_|\_\ |_|\_\___/|_.__/|_|\__,_|\__,_|
-                     _            _   _
- _ __  _ __ ___   __| |_   _  ___| |_(_) ___  _ __
-| '_ \| '__/ _ \ / _` | | | |/ __| __| |/ _ \| '_ \
-| |_) | | | (_) | (_| | |_| | (__| |_| | (_) | | | |
-| .__/|_|  \___/ \__,_|\__,_|\___|\__|_|\___/|_| |_|
-|_|
+     _                _                                  _
+  __| | _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_
+ / _` |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+| (_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_
+ \__,_|\___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|
+                             |_|
 
-→ [00:30] [CSS] 91.36 KB ./node_modules/@warden-sk/compiler/design.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 330.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [00:30] [JS] 1.05 KB 1.47 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
-→ [00:30] [SERVER] http://127.0.0.1, http://192.168.100.129
-→ [00:30] [CSS] 330.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 1.57 KB 1.20 second(s) /Users/marekkobida/Documents/compiler_test/private/Client.tsx
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 757.00 B 0.98 second(s) /Users/marekkobida/Documents/compiler_test/private/context.ts
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 1.66 KB 0.96 second(s) /Users/marekkobida/Documents/compiler_test/private/Things.tsx
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 1002.00 B 1.00 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/decodeThings.ts
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 996.00 B 0.99 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/encodeThings.ts
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 1.58 KB 1.05 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/useDraggable.ts
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 3.63 KB 0.97 second(s) /Users/marekkobida/Documents/compiler_test/private/Thing.tsx
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [CSS] 77.00 B /Users/marekkobida/Documents/compiler_test/private/Client.css
-→ [00:30] [JS] 1.78 KB 1.00 second(s) /Users/marekkobida/Documents/compiler_test/private/Input.tsx
-null asset index.js 150 KiB [compared for emit] [minimized] (name: main) 1 related asset
-modules by path ./node_modules/ 156 KiB
+→ [15:13] [CSS] 91.36 KB ./node_modules/@warden-sk/compiler/design.css
+→ [15:13] [CSS] 116.00 B /Users/marekkobida/Documents/compiler_test/private/components/Client/index.css
+→ [15:13] [CSS] 661.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [15:13] [JS] 1.16 KB 1.46 second(s) /Users/marekkobida/Documents/compiler_test/private/index.tsx
+→ [15:13] [SERVER] http://127.0.0.1, http://192.168.100.129
+→ [15:13] [CSS] 661.00 B /Users/marekkobida/Documents/compiler_test/private/index.css
+→ [15:13] [CSS] 116.00 B /Users/marekkobida/Documents/compiler_test/private/components/Client/index.css
+→ [15:13] [JS] 2.65 KB 1.03 second(s) /Users/marekkobida/Documents/compiler_test/private/components/Client/index.tsx
+→ [15:13] [CSS] 116.00 B /Users/marekkobida/Documents/compiler_test/private/components/Client/index.css
+→ [15:13] [JS] 2.28 KB 1.05 second(s) /Users/marekkobida/Documents/compiler_test/private/components/Lists.tsx
+→ [15:13] [JS] 1.72 KB 1.04 second(s) /Users/marekkobida/Documents/compiler_test/private/components/Things.tsx
+→ [15:13] [JS] 1.94 KB 1.03 second(s) /Users/marekkobida/Documents/compiler_test/private/components/Input.tsx
+→ [15:13] [JS] 1002.00 B 0.93 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/decodeThings.ts
+→ [15:13] [JS] 795.00 B 0.93 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/context.ts
+→ [15:13] [JS] 996.00 B 0.96 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/encodeThings.ts
+→ [15:13] [JS] 1.62 KB 0.98 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/useDraggable.ts
+→ [15:13] [JS] 1.22 KB 0.99 second(s) /Users/marekkobida/Documents/compiler_test/private/helpers/useFilteredThings.ts
+→ [15:13] [JS] 3.61 KB 1.08 second(s) /Users/marekkobida/Documents/compiler_test/private/components/Thing.tsx
+null asset index.js 1.17 MiB [emitted] (name: main)
+runtime modules 123 bytes 1 module
+modules by path ./node_modules/ 1.1 MiB
   modules by path ./node_modules/@warden-sk/compiler/ 14.6 KiB 11 modules
-  modules by path ./node_modules/react-dom/ 131 KiB 3 modules
-  modules by path ./node_modules/react/ 6.94 KiB 2 modules
-  modules by path ./node_modules/scheduler/ 4.33 KiB 2 modules
-modules by path ./private/ 13.9 KiB
-  modules by path ./private/*.tsx 9.67 KiB 5 modules
-  modules by path ./private/helpers/*.ts 3.53 KiB 3 modules
-  modules by path ./private/*.css 2 bytes
-    ./private/index.css 1 bytes [built] [code generated]
-    ./private/Client.css 1 bytes [built] [code generated]
-  ./private/context.ts 757 bytes [built] [code generated]
-webpack 5.77.0 compiled successfully in 11320 ms
+  modules by path ./node_modules/react-dom/ 1000 KiB 3 modules
+  modules by path ./node_modules/react/ 85.7 KiB 2 modules
+  modules by path ./node_modules/scheduler/ 17.3 KiB 2 modules
+modules by path ./private/ 18.9 KiB
+  modules by path ./private/components/ 12.2 KiB 6 modules
+  modules by path ./private/helpers/*.ts 5.57 KiB
+    ./private/helpers/context.ts 795 bytes [built] [code generated]
+    + 4 modules
+  ./private/index.tsx 1.16 KiB [built] [code generated]
+  ./private/index.css 1 bytes [built] [code generated]
+webpack 5.77.0 compiled successfully in 11905 ms
 ```
