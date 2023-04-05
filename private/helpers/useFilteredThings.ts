@@ -1,7 +1,3 @@
-/*
- * Copyright 2023 Marek Kobida
- */
-
 import React from 'react';
 import context from '../helpers/context';
 import type { Thing } from '../types';
