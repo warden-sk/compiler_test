@@ -26,10 +26,13 @@ function Client() {
     <context.Provider value={{ setThings, things }}>
       <div className="container" mX="auto">
         <div p="4" spaceY="4">
+          <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists" mB="2">
+            Lists
+          </label>
           <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
             <div p="2">↓</div>
-            <select border="0" p="2" width="100">
-              <option>Všetky</option>
+            <select border="0" id="lists" p="2" width="100">
+              <option>All</option>
             </select>
           </div>
           <Input />
