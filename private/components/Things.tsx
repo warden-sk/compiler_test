@@ -20,7 +20,7 @@ function Things({ list }: { list: string }) {
   if (filteredThings.length) {
     return (
       <div spaceY="4">
-        <div fontSize="8">Things</div>
+        <div fontSize="8">{filteredThings.length} thing(s)</div>
         <div spaceY="2">
           {filteredThings.map((thing, i) => (
             <Thing {...draggable} i={i} key={thing.key} thing={thing} />

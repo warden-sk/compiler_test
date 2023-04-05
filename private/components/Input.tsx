@@ -6,15 +6,17 @@ function Input() {
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      const key = e.currentTarget.value;
+      const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
-      setThings(things => {
-        const newThing = { createdAt: new Date(), isDone: false, key };
+      if (key.length) {
+        setThings(things => {
+          const newThing = { createdAt: new Date(), isDone: false, key };
 
-        return [...things, newThing];
-      });
+          return [...things, newThing];
+        });
 
-      e.currentTarget.value = '';
+        e.currentTarget.value = '';
+      }
     }
   }
 
