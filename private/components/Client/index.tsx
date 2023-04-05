@@ -8,6 +8,7 @@ import Things from '../Things';
 import './index.css';
 
 function Client() {
+  const [list, setList] = React.useState<string>('All');
   const [things, setThings] = React.useState<Thing[]>([]);
 
   React.useEffect(() => {
@@ -24,19 +25,23 @@ function Client() {
 
   return (
     <context.Provider value={{ setThings, things }}>
-      <div className="container" mX="auto">
-        <div p="4" spaceY="4">
+      <div className="container" mX="auto" pX="4" pY="8">
+        <div spaceY="4">
           <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists" mB="2">
             Lists
           </label>
           <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
             <div p="2">↓</div>
-            <select border="0" id="lists" p="2" width="100">
-              <option>All</option>
+            <select border="0" id="lists" onInput={e => setList(e.currentTarget.value)} p="2" width="100">
+              {['All', 'Done', 'Not done'].map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
           <Input />
-          <Things />
+          <Things list={list} />
         </div>
       </div>
     </context.Provider>

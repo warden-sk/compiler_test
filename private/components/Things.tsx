@@ -3,13 +3,23 @@ import context from '../helpers/context';
 import useDraggable from '../helpers/useDraggable';
 import Thing from './Thing';
 
-function Things() {
+function Things({ list }: { list: string }) {
   const draggable = useDraggable();
   const { things } = React.useContext(context);
 
+  let filteredThings = [...things];
+
+  if (list === 'Done') {
+    filteredThings = filteredThings.filter(thing => thing.isDone);
+  }
+
+  if (list === 'Not done') {
+    filteredThings = filteredThings.filter(thing => !thing.isDone);
+  }
+
   return (
     <div spaceY="2">
-      {things.map((thing, i) => (
+      {filteredThings.map((thing, i) => (
         <Thing {...draggable} i={i} key={thing.key} thing={thing} />
       ))}
     </div>
