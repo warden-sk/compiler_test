@@ -5,10 +5,6 @@
 .done {
   border-color: hsl(120, 100%, 25%);
   color: hsl(120, 100%, 25%);
-  text-decoration: line-through;
-}
-.done input {
-  text-decoration: line-through;
 }
 @media (prefers-color-scheme: dark) {
   .done {

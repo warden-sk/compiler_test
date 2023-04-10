@@ -13,16 +13,10 @@ function Things() {
 
   if (filteredThings.length) {
     return (
-      // move "height" elsewhere
-      <div height="100" spaceY="4" style={{ overflowY: 'auto' }}>
-        <div fontSize="8" fontWeight="600">
-          Things
-        </div>
-        <div spaceY="2">
-          {filteredThings.map(thing => (
-            <Thing {...draggable} i={thing.i} key={thing.key} thing={thing} />
-          ))}
-        </div>
+      <div style={{ overflowY: 'auto' }}>
+        {filteredThings.map(thing => (
+          <Thing {...draggable} i={thing.i} key={thing.key} thing={thing} />
+        ))}
       </div>
     );
   }

@@ -34,6 +34,9 @@ function Client() {
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />
           <Input />
+          <div fontSize="8" fontWeight="600">
+            Things
+          </div>
           <Things />
           <div fontSize="2" opacity="50" textAlign="center">
             Copyright 2023 Marek Kobida
