@@ -100,7 +100,7 @@ function Calendar({ count, date1st, date2nd }: P) {
             const { AFTER, BEFORE, DAYS_IN_CURRENT_MONTH } = test(d);
 
             return (
-              <div key={i} p="1">
+              <div key={i} p="2">
                 <div alignItems="center" display="flex">
                   <div fontSize="4" fontWeight="600" mX="auto">
                     {MONTHS[d.getMonth()]} {d.getFullYear()}
@@ -143,10 +143,10 @@ function Calendar({ count, date1st, date2nd }: P) {
             const { AFTER, BEFORE, DAYS_IN_CURRENT_MONTH } = test(d);
 
             return (
-              <div key={i} p="1" width={['100', { '#': `${12 / count}/12` }]}>
+              <div key={i} p="2" width={['100', { '#': `${12 / count}/12` }]}>
                 <div alignItems="center" display="flex">
                   {i === 1 && (
-                    <div cursor="pointer" fontSize="8" onClick={() => onLeft()}>
+                    <div cursor="pointer" onClick={() => onLeft()}>
                       {'\u2190'}
                     </div>
                   )}
@@ -154,7 +154,7 @@ function Calendar({ count, date1st, date2nd }: P) {
                     {MONTHS[d.getMonth()]} {d.getFullYear()}
                   </div>
                   {i === count && (
-                    <div cursor="pointer" fontSize="8" onClick={() => onRight()}>
+                    <div cursor="pointer" onClick={() => onRight()}>
                       {'\u2192'}
                     </div>
                   )}
