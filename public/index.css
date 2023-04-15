@@ -56,3 +56,59 @@ select {
     color: hsl(120, 100%, 75%);
   }
 }
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+:root {
+  --Component\(background-color\): hsl(0, 0%, 12.5%);
+  --Component\(border-color\): hsl(0, 0%, 25%);
+  --Component\(color\)\(purple\): hsl(0, 0%, 87.5%);
+}
+/* /Users/marekkobida/Documents/warden/compiler_test/private/test/Calendar/index.css */
+:root {
+  --Calendar\(background-color\): var(--Component\(background-color\));
+  --Calendar\(border-color\): var(--Component\(border-color\));
+  --Calendar\(color\): var(--Component\(color\)\(purple\));
+}
+.Calendar {
+  background-color: var(--Calendar\(background-color\));
+  border-color: var(--Calendar\(border-color\));
+  color: var(--Calendar\(color\));
+}
+/* /Users/marekkobida/Documents/warden/compiler_test/private/test/Calendar/CalendarDay.css */
+.Calendar__day {
+  padding-bottom: 100%;
+  position: relative;
+}
+.Calendar__day__i {
+  position: absolute;
+}
+.Calendar__day_1st,
+.Calendar__day_2nd {
+  position: relative;
+}
+.Calendar__day_1st > *,
+.Calendar__day_2nd > * {
+  z-index: 2;
+}
+.Calendar__day_1st:not(.Calendar__day_2ndDefault)::after,
+.Calendar__day_2nd:not(.Calendar__day_2ndDefault)::after {
+  background-color: var(--Component\(border-color\));
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  z-index: 1;
+}
+.Calendar__day_1st::after {
+  right: 0;
+}
+.Calendar__day_2nd::after {
+  left: 0;
+}
+.Calendar__day_1st .Calendar__day__i,
+.Calendar__day_2nd .Calendar__day__i {
+  background-color: var(--Calendar\(color\));
+  color: var(--Calendar\(background-color\));
+}
+.Calendar__day_between .Calendar__day__i {
+  background-color: var(--Component\(border-color\));
+}
