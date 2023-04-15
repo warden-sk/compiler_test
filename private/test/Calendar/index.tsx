@@ -148,7 +148,7 @@ function Calendar({ count, date1st, date2nd }: P) {
                 <div alignItems="center" display="flex">
                   {i === 1 && (
                     <div cursor="pointer" onClick={() => onLeft()}>
-                      {'\u2190'} dozadu
+                      {'\u2190'} {MONTHS[state.date.moveLeft().getMonth()]}
                     </div>
                   )}
                   <div fontSize="4" fontWeight="600" mX="auto">
@@ -156,7 +156,7 @@ function Calendar({ count, date1st, date2nd }: P) {
                   </div>
                   {i === count && (
                     <div cursor="pointer" onClick={() => onRight()}>
-                      dopredu {'\u2192'}
+                      {MONTHS[state.date.addMonths(count).getMonth()]} {'\u2192'}
                     </div>
                   )}
                 </div>
