@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
+import createArrayOf from '../helpers/createArrayOf';
 import EnhancedDate from '../helpers/EnhancedDate';
 import useState from '../helpers/useState';
 import type { CalendarContext } from './calendarContext';
 import calendarContext from './calendarContext';
 import CalendarDay from './CalendarDay';
 import { DAYS, MONTHS } from './constants';
-import createArrayOf from './helpers/createArrayOf';
 import './index.css';
 
 interface P extends EnhancedJSXElement<'div'> {
