@@ -37,9 +37,7 @@ function Client() {
     <context.Provider value={{ currentList, setCurrentList, setThings, things }}>
       <div className="container" height="100" mX="auto" p="4">
         <div display="flex" flexDirection="column" height="100" spaceY="4">
-          <div border="1" borderRadius="2" className="test" p="2">
-            <Calendar count={2} date1st={date1st} date2nd={date2nd} />
-          </div>
+          <Calendar count={2} date1st={date1st} date2nd={date2nd} />
           <Lists />
           <Input />
           <div fontSize="8" fontWeight="600">

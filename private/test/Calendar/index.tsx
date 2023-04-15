@@ -146,7 +146,7 @@ function Calendar({ count, date1st, date2nd }: P) {
               <div key={i} p="1" width={['100', { '#': `${12 / count}/12` }]}>
                 <div alignItems="center" display="flex">
                   {i === 1 && (
-                    <div cursor="pointer" onClick={() => onLeft()}>
+                    <div cursor="pointer" fontSize="8" onClick={() => onLeft()}>
                       {'\u2190'}
                     </div>
                   )}
@@ -154,7 +154,7 @@ function Calendar({ count, date1st, date2nd }: P) {
                     {MONTHS[d.getMonth()]} {d.getFullYear()}
                   </div>
                   {i === count && (
-                    <div cursor="pointer" onClick={() => onRight()}>
+                    <div cursor="pointer" fontSize="8" onClick={() => onRight()}>
                       {'\u2192'}
                     </div>
                   )}
