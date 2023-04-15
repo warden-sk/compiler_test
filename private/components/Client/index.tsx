@@ -9,9 +9,6 @@ import encodeThings from '../../helpers/encodeThings';
 import Calendar from '../../test/Calendar';
 import EnhancedDate from '../../test/helpers/EnhancedDate';
 import type { Thing } from '../../types';
-import Input from '../Input';
-import Lists from '../Lists';
-import Things from '../Things';
 import './index.css';
 
 function Client() {
@@ -19,7 +16,7 @@ function Client() {
   const [things, setThings] = React.useState<Thing[]>([]);
 
   const date1st = React.useState<EnhancedDate>(new EnhancedDate().date());
-  const date2nd = React.useState<EnhancedDate | undefined>(new EnhancedDate(2023, 11, 31).date());
+  const date2nd = React.useState<EnhancedDate>(new EnhancedDate(2023, 11, 31).date());
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
@@ -37,13 +34,17 @@ function Client() {
     <context.Provider value={{ currentList, setCurrentList, setThings, things }}>
       <div className="container" height="100" mX="auto" p="4">
         <div display="flex" flexDirection="column" height="100" spaceY="4">
-          <Calendar count={2} date1st={date1st} date2nd={date2nd} />
-          <Lists />
-          <Input />
-          <div fontSize="8" fontWeight="600">
-            Things
+          <div>
+            <div>1st: {date1st[0].toLocaleString('sk')}</div>
+            <div>2nd: {date2nd[0].toLocaleString('sk')}</div>
           </div>
-          <Things />
+          <Calendar count={2} date1st={date1st} date2nd={date2nd} />
+          {/*<Lists />*/}
+          {/*<Input />*/}
+          {/*<div fontSize="8" fontWeight="600">*/}
+          {/*  Things*/}
+          {/*</div>*/}
+          {/*<Things />*/}
           <div fontSize="2" opacity="50" textAlign="center">
             Copyright 2023 Marek Kobida
           </div>

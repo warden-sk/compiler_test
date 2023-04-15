@@ -59,19 +59,20 @@ function Calendar({ count, date1st, date2nd }: P) {
   function $(date: EnhancedDate) {
     if (+date >= +new EnhancedDate().date()) {
       if (state.whichToMove === 1) {
-        //if (+date < +date2nd[0]) {
+        // if (+date < +date2nd[0]) {
         date1st[1](date);
+        date2nd[1](new EnhancedDate(2023, 11, 31).date());
 
         setState({ whichToMove: 2 });
-        //}
+        // }
       }
 
       if (state.whichToMove === 2) {
-        //if (+date > +date1st[0]) {
-        date2nd[1](date);
+        if (+date > +date1st[0]) {
+          date2nd[1](date);
 
-        setState({ whichToMove: 1 });
-        //}
+          setState({ whichToMove: 1 });
+        }
       }
     }
   }
