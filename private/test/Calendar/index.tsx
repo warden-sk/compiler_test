@@ -61,7 +61,7 @@ function Calendar({ count, date1st, date2nd }: P) {
       if (state.whichToMove === 1) {
         // if (+date < +date2nd[0]) {
         date1st[1](date);
-        date2nd[1](new EnhancedDate(2023, 11, 31).date());
+        date2nd[1](new EnhancedDate(2024, 11, 31).date());
 
         setState({ whichToMove: 2 });
         // }

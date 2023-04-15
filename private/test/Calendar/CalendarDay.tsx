@@ -22,6 +22,8 @@ function CalendarDay({ className, date, updateDate, ...$ }: P) {
 
   const isCurrent = (is1st && state.whichToMove === 1) || (is2nd && state.whichToMove === 2);
 
+  const is2ndDefault = +date2nd[0] === +new EnhancedDate(2024, 11, 31).date();
+
   return (
     <div
       {...$}
@@ -31,7 +33,8 @@ function CalendarDay({ className, date, updateDate, ...$ }: P) {
         {
           Calendar__day_1st: is1st,
           Calendar__day_2nd: is2nd,
-          Calendar__day_between: isBetween,
+          Calendar__day_2ndDefault: is2ndDefault,
+          Calendar__day_between: !is2ndDefault && isBetween,
         },
       ]}
       opacity={+date < +new EnhancedDate().date() && '25'}

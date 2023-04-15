@@ -16,7 +16,7 @@ function Client() {
   const [things, setThings] = React.useState<Thing[]>([]);
 
   const date1st = React.useState<EnhancedDate>(new EnhancedDate().date());
-  const date2nd = React.useState<EnhancedDate>(new EnhancedDate(2023, 11, 31).date());
+  const date2nd = React.useState<EnhancedDate>(new EnhancedDate(2024, 11, 31).date());
 
   React.useEffect(() => {
     const things = localStorage.getItem('things');
@@ -34,9 +34,13 @@ function Client() {
     <context.Provider value={{ currentList, setCurrentList, setThings, things }}>
       <div className="container" height="100" mX="auto" p="4">
         <div display="flex" flexDirection="column" height="100" spaceY="4">
-          <div>
-            <div>1st: {date1st[0].toLocaleString('sk')}</div>
-            <div>2nd: {date2nd[0].toLocaleString('sk')}</div>
+          <div display="flex" fontSize="2" justifyContent="center" spaceX="4">
+            <div>od {date1st[0].toLocaleDateString()}</div>
+            {+date2nd[0] === +new EnhancedDate(2024, 11, 31).date() ? (
+              <div>{'\u2014'}</div>
+            ) : (
+              <div>do {date2nd[0].toLocaleDateString()}</div>
+            )}
           </div>
           <Calendar count={2} date1st={date1st} date2nd={date2nd} />
           {/*<Lists />*/}
