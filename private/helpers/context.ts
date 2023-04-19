@@ -11,8 +11,8 @@ interface ThingsContext {
 }
 
 interface Context extends ThingsContext {
-  currentList: string;
-  setCurrentList: React.Dispatch<React.SetStateAction<string>>;
+  currentListName: string;
+  setCurrentListName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const context = React.createContext<Context>({} as Context);

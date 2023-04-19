@@ -13,7 +13,7 @@ import Things from '../Things';
 import './index.css';
 
 function Client() {
-  const [currentList, setCurrentList] = React.useState<string>('All');
+  const [currentListName, setCurrentListName] = React.useState<string>('All');
   const [things, setThings] = React.useState<Thing[]>([]);
 
   React.useEffect(() => {
@@ -29,7 +29,7 @@ function Client() {
   }, [encodeThings(things)]);
 
   return (
-    <context.Provider value={{ currentList, setCurrentList, setThings, things }}>
+    <context.Provider value={{ currentListName, setCurrentListName, setThings, things }}>
       <div className="container" height="100" mX="auto" p="4">
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />

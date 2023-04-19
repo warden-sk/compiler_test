@@ -7,7 +7,7 @@ import context from '../helpers/context';
 import useFilteredThings from '../helpers/useFilteredThings';
 
 function Lists() {
-  const { setCurrentList } = React.useContext(context);
+  const { setCurrentListName } = React.useContext(context);
 
   return (
     <div spaceY="2">
@@ -16,13 +16,13 @@ function Lists() {
       </label>
       <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex">
         <div p="2">{'\u2193'}</div>
-        <select border="0" id="lists" onInput={e => setCurrentList(e.currentTarget.value)} p="2" width="100">
-          {['All', 'Done', 'Not done'].map(list => {
-            const filteredThings = useFilteredThings(list);
+        <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} p="2" width="100">
+          {['All', 'Done', 'Not done'].map(listName => {
+            const filteredThings = useFilteredThings(listName);
 
             return (
-              <option key={list} value={list}>
-                {list} ({filteredThings.length})
+              <option key={listName} value={listName}>
+                {listName} ({filteredThings.length})
               </option>
             );
           })}
