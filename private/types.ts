@@ -3,6 +3,7 @@
  */
 
 import type React from 'react';
+import type EnhanceThing from './helpers/EnhanceThing';
 
 export interface Thing {
   createdAt: Date;
@@ -11,9 +12,8 @@ export interface Thing {
 }
 
 export interface ThingInput extends UseDraggableOutput {
-  i: number;
   key: string;
-  thing: Thing;
+  thing: EnhanceThing;
 }
 
 export interface UseDraggableOutput {

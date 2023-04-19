@@ -4,14 +4,14 @@
 
 import React from 'react';
 import context from '../helpers/context';
-import type { Thing } from '../types';
+import type EnhanceThing from '../helpers/EnhanceThing';
 
-function useFilteredThings(listName?: string): (Thing & { i: number })[] {
+function useFilteredThings(listName?: string): EnhanceThing[] {
   const { currentListName, things } = React.useContext(context);
 
   const $: string = listName ?? currentListName;
 
-  let filteredThings = [...things].map((thing, i) => ({ ...thing, i }));
+  let filteredThings = [...things];
 
   if ($ === 'Done') {
     filteredThings = filteredThings.filter(thing => thing.isDone);

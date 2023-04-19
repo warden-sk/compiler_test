@@ -6,6 +6,7 @@ import React from 'react';
 import context from '../../helpers/context';
 import decodeThings from '../../helpers/decodeThings';
 import encodeThings from '../../helpers/encodeThings';
+import EnhanceThing from '../../helpers/EnhanceThing';
 import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
@@ -29,7 +30,14 @@ function Client() {
   }, [encodeThings(things)]);
 
   return (
-    <context.Provider value={{ currentListName, setCurrentListName, setThings, things }}>
+    <context.Provider
+      value={{
+        currentListName,
+        setCurrentListName,
+        setThings,
+        things: things.map((thing, i) => new EnhanceThing(i, setThings, thing, things)),
+      }}
+    >
       <div className="container" height="100" mX="auto" p="4">
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />

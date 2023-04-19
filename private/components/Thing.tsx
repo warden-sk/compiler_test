@@ -6,24 +6,8 @@ import React from 'react';
 import context from '../helpers/context';
 import type { ThingInput } from '../types';
 
-function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
+function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const { setThings, things } = React.useContext(context);
-
-  function moveDown() {
-    const newThings = [...things];
-    newThings.splice(i, 1);
-    newThings.splice(i + 1, 0, things[i]);
-
-    setThings(newThings);
-  }
-
-  function moveUp() {
-    const newThings = [...things];
-    newThings.splice(i, 1);
-    newThings.splice(i - 1, 0, things[i]);
-
-    setThings(newThings);
-  }
 
   function onDelete(e: React.MouseEvent<HTMLDivElement>, j: number) {
     setThings(things => {
@@ -70,20 +54,24 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       display="flex"
       draggable
       lineHeight="1"
-      onDragEnd={e => onDragEnd(e, i)}
-      onDragOver={e => onDragOver(e, i)}
-      onDragStart={e => onDragStart(e, i)}
+      onDragEnd={e => onDragEnd(e, thing.i)}
+      onDragOver={e => onDragOver(e, thing.i)}
+      onDragStart={e => onDragStart(e, thing.i)}
       spaceX="4"
     >
       <div display="flex" opacity="50" spaceX="2">
-        <div cursor="pointer" onClick={() => moveUp()} opacity={i === 0 && '0'}>{`\u2191`}</div>
-        <div cursor="pointer" onClick={() => moveDown()} opacity={i === things.length - 1 && '0'}>{`\u2193`}</div>
+        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '0'}>{`\u2191`}</div>
+        <div
+          cursor="pointer"
+          onClick={() => thing.moveDown()}
+          opacity={thing.i === things.length - 1 && '0'}
+        >{`\u2193`}</div>
       </div>
       <div
         border="2"
         borderRadius="2"
         cursor="pointer"
-        onClick={e => onDone(e, i)}
+        onClick={e => onDone(e, thing.i)}
         opacity={!thing.isDone && '50'}
         p="2"
       >
@@ -94,7 +82,7 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
           border="0"
           defaultValue={thing.key}
           fontSize="4"
-          onKeyDown={e => onUpdate(e, i)}
+          onKeyDown={e => onUpdate(e, thing.i)}
           p="2"
           type="text"
           width="100"
@@ -103,7 +91,7 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
-      <div cursor="pointer" onClick={e => onDelete(e, i)} opacity="50" p="2">
+      <div cursor="pointer" onClick={e => onDelete(e, thing.i)} opacity="50" p="2">
         {'\u2717'}
       </div>
     </div>
