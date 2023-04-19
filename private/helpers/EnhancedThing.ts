@@ -21,6 +21,26 @@ class EnhancedThing {
     this.key = thing.key;
   }
 
+  delete() {
+    this.setThings(things => {
+      return things.filter((thing, k) => {
+        return k !== this.i;
+      });
+    });
+  }
+
+  done() {
+    this.setThings(things => {
+      return things.map((thing, k) => {
+        if (k === this.i) {
+          return { ...thing, isDone: !thing.isDone };
+        } else {
+          return thing;
+        }
+      });
+    });
+  }
+
   moveDown() {
     const newThings = [...this.things];
     newThings.splice(this.i, 1);
@@ -35,6 +55,18 @@ class EnhancedThing {
     newThings.splice(this.i - 1, 0, this.things[this.i]);
 
     this.setThings(newThings);
+  }
+
+  update(key: string) {
+    this.setThings(things => {
+      return things.map((thing, k) => {
+        if (k === this.i) {
+          return { ...thing, key };
+        } else {
+          return thing;
+        }
+      });
+    });
   }
 }
 

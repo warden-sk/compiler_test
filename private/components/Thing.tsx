@@ -7,42 +7,14 @@ import context from '../helpers/context';
 import type { ThingInput } from '../types';
 
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
-  const { setThings, things } = React.useContext(context);
-
-  function onDelete(e: React.MouseEvent<HTMLDivElement>, j: number) {
-    setThings(things => {
-      return things.filter((thing, k) => {
-        return k !== j;
-      });
-    });
-  }
-
-  function onDone(e: React.MouseEvent<HTMLDivElement>, j: number) {
-    setThings(things => {
-      return things.map((thing, k) => {
-        if (k === j) {
-          return { ...thing, isDone: !thing.isDone };
-        } else {
-          return thing;
-        }
-      });
-    });
-  }
+  const { things } = React.useContext(context);
 
   function onUpdate(e: React.KeyboardEvent<HTMLInputElement>, j: number) {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
       if (key.length) {
-        setThings(things => {
-          return things.map((thing, k) => {
-            if (k === j) {
-              return { ...thing, key };
-            } else {
-              return thing;
-            }
-          });
-        });
+        thing.update(key);
       }
     }
   }
@@ -71,7 +43,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         border="2"
         borderRadius="2"
         cursor="pointer"
-        onClick={e => onDone(e, thing.i)}
+        onClick={() => thing.done()}
         opacity={!thing.isDone && '50'}
         p="2"
       >
@@ -91,7 +63,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
-      <div cursor="pointer" onClick={e => onDelete(e, thing.i)} opacity="50" p="2">
+      <div cursor="pointer" onClick={() => thing.delete()} opacity="50" p="2">
         {'\u2717'}
       </div>
     </div>
