@@ -9,6 +9,22 @@ import type { ThingInput } from '../types';
 function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const { setThings, things } = React.useContext(context);
 
+  function moveDown() {
+    const newThings = [...things];
+    newThings.splice(i, 1);
+    newThings.splice(i + 1, 0, things[i]);
+
+    setThings(newThings);
+  }
+
+  function moveUp() {
+    const newThings = [...things];
+    newThings.splice(i, 1);
+    newThings.splice(i - 1, 0, things[i]);
+
+    setThings(newThings);
+  }
+
   function onDelete(e: React.MouseEvent<HTMLDivElement>, j: number) {
     setThings(things => {
       return things.filter((thing, k) => {
@@ -59,10 +75,10 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       onDragStart={e => onDragStart(e, i)}
       spaceX="4"
     >
-      {/*<div display="flex" opacity="50" spaceX="2">*/}
-      {/*  <div cursor="pointer" opacity={i === 0 && '0'}>{`\u2191`}</div>*/}
-      {/*  <div cursor="pointer" opacity={i === things.length - 1 && '0'}>{`\u2193`}</div>*/}
-      {/*</div>*/}
+      <div display="flex" opacity="50" spaceX="2">
+        <div cursor="pointer" onClick={() => moveUp()} opacity={i === 0 && '0'}>{`\u2191`}</div>
+        <div cursor="pointer" onClick={() => moveDown()} opacity={i === things.length - 1 && '0'}>{`\u2193`}</div>
+      </div>
       <div
         border="2"
         borderRadius="2"
