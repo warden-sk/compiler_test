@@ -38,9 +38,6 @@ function Client() {
             Things
           </div>
           <Things />
-          <div fontSize="2" opacity="50" textAlign="center">
-            Copyright 2023 Marek Kobida
-          </div>
         </div>
       </div>
     </context.Provider>
