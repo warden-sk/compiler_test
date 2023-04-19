@@ -13,7 +13,7 @@ function Things() {
 
   if (filteredThings.length) {
     return (
-      <div style={{ overflowY: 'auto' }}>
+      <div height="100" style={{ overflowY: 'auto' }}>
         {filteredThings.map(thing => (
           <Thing {...draggable} i={thing.i} key={thing.key} thing={thing} />
         ))}
