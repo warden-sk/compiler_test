@@ -4,9 +4,9 @@
 
 import React from 'react';
 import context from '../helpers/context';
-import type EnhanceThing from '../helpers/EnhanceThing';
+import type EnhancedThing from './EnhancedThing';
 
-function useFilteredThings(listName?: string): EnhanceThing[] {
+function useFilteredThings(listName?: string): EnhancedThing[] {
   const { currentListName, things } = React.useContext(context);
 
   const $: string = listName ?? currentListName;

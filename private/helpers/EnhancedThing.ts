@@ -5,7 +5,7 @@
 import type React from 'react';
 import type { Thing } from '../types';
 
-class EnhanceThing {
+class EnhancedThing {
   createdAt: Date;
   isDone: boolean;
   key: string;
@@ -38,4 +38,4 @@ class EnhanceThing {
   }
 }
 
-export default EnhanceThing;
+export default EnhancedThing;

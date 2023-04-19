@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import type EnhanceThing from '../helpers/EnhanceThing';
 import type { Thing } from '../types';
+import type EnhancedThing from './EnhancedThing';
 
 interface ThingsContext {
   setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
-  things: EnhanceThing[];
+  things: EnhancedThing[];
 }
 
 interface Context extends ThingsContext {
