@@ -59,10 +59,10 @@ function Thing({ i, onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       onDragStart={e => onDragStart(e, i)}
       spaceX="4"
     >
-      <div display="flex" opacity="50" spaceX="2">
-        <div cursor="pointer" opacity={i === 0 && '0'}>{`\u2191`}</div>
-        <div cursor="pointer" opacity={i === things.length - 1 && '0'}>{`\u2193`}</div>
-      </div>
+      {/*<div display="flex" opacity="50" spaceX="2">*/}
+      {/*  <div cursor="pointer" opacity={i === 0 && '0'}>{`\u2191`}</div>*/}
+      {/*  <div cursor="pointer" opacity={i === things.length - 1 && '0'}>{`\u2193`}</div>*/}
+      {/*</div>*/}
       <div
         border="2"
         borderRadius="2"
