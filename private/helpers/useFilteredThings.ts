@@ -9,17 +9,17 @@ import type EnhancedThing from './EnhancedThing';
 function useFilteredThings(listName?: string): EnhancedThing[] {
   const { currentListName, things } = React.useContext(context);
 
-  const $: string = listName ?? currentListName;
+  /* (1) */ listName = listName ?? currentListName;
 
-  let filteredThings = [...things];
+  /* (2) */ let filteredThings = [...things];
 
-  if ($ === 'All') {
-  } else if ($ === 'Done') {
+  if (listName === 'All') {
+  } else if (listName === 'Done') {
     filteredThings = filteredThings.filter(thing => thing.isDone);
-  } else if ($ === 'Not done') {
+  } else if (listName === 'Not done') {
     filteredThings = filteredThings.filter(thing => !thing.isDone);
   } else {
-    filteredThings = filteredThings.filter(thing => thing.list === $);
+    filteredThings = filteredThings.filter(thing => thing.list === listName);
   }
 
   return filteredThings;
