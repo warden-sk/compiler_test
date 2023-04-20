@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import type { ThingInput } from '../types';
+import type { ThingInput } from '../../types';
 
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const onUpdate = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
