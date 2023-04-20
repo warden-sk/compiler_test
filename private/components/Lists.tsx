@@ -6,7 +6,7 @@ import React from 'react';
 import context from '../helpers/context';
 import useFilteredThings from '../helpers/useFilteredThings';
 
-function Option({ listName }: { key: string; listName: string }) {
+function Option({ listName }: { key: React.Key; listName: string }) {
   const filteredThings = useFilteredThings(listName);
 
   return (
@@ -19,22 +19,7 @@ function Option({ listName }: { key: string; listName: string }) {
 function Lists() {
   const { setCurrentListName, things } = React.useContext(context);
 
-  let lists: string[] = [...things].map(thing => thing.list);
-
-  lists = lists.reduce<string[]>(
-    ($, currentValue) => {
-      if (currentValue === 'undefined') {
-        return $;
-      }
-
-      if ($.indexOf(currentValue) !== -1) {
-        return $;
-      }
-
-      return [...$, currentValue];
-    },
-    ['All', 'Done', 'Not done']
-  );
+  const lists: string[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list).filter(Boolean))];
 
   return (
     <div spaceY="2">
