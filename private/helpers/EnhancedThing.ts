@@ -9,12 +9,14 @@ class EnhancedThing {
   createdAt: Date;
   isDone: boolean;
   key: string;
+  list: string;
 
   constructor(public i: number, public parent: EnhancedThings, thing: Thing) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;
     this.key = thing.key;
+    this.list = thing.list;
     this.parent = parent;
   }
 
