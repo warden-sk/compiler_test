@@ -41,8 +41,10 @@ function Client() {
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />
           <Input />
-          <ExportButton />
-          <ImportButton />
+          <div display="flex" opacity="50" spaceX="2">
+            <ExportButton />
+            <ImportButton />
+          </div>
           <div fontSize="9" fontWeight="600">
             Things
           </div>

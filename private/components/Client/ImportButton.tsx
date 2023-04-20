@@ -31,11 +31,14 @@ function ImportButton() {
         type="file"
       />
       <div
+        border="2"
+        borderRadius="2"
         cursor="pointer"
         fontWeight="600"
         onClick={() => {
           (window.document.querySelector('#import') as HTMLInputElement).click();
         }}
+        p="2"
       >
         Import things
       </div>

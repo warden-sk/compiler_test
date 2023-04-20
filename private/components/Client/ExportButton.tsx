@@ -11,6 +11,8 @@ function ExportButton() {
   if (things.size) {
     return (
       <div
+        border="2"
+        borderRadius="2"
         cursor="pointer"
         fontWeight="600"
         onClick={() => {
@@ -25,6 +27,7 @@ function ExportButton() {
 
           URL.revokeObjectURL(fileUrl);
         }}
+        p="2"
       >
         Export things
       </div>
