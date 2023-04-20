@@ -28,7 +28,12 @@ class Things {
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   add(key: string, list: string): T {
-    const newThing = { createdAt: new Date(), isDone: false, key, list };
+    const newThing = {
+      createdAt: new Date(),
+      isDone: false,
+      key: key.replace(/^\s+|\s+$/g, ''),
+      list: list.replace(/^\s+|\s+$/g, ''),
+    };
 
     this.setThings(things => [...things, newThing]);
 

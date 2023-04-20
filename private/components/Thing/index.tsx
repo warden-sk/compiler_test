@@ -4,11 +4,14 @@
 
 import React from 'react';
 import type { ThingInput } from '../../types';
+import DeleteButton from './DeleteButton';
+import MoveDownButton from './MoveDownButton';
+import MoveUpButton from './MoveUpButton';
 
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const onUpdate = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
+      const key = e.currentTarget.value;
 
       if (key.length) {
         thing.update(key);
@@ -45,11 +48,9 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         </div>
       </div>
       <div display="flex" fontSize="5" opacity="50" spaceX="2">
-        <div cursor="pointer" onClick={() => thing.delete()}>
-          {'\u2717'}
-        </div>
-        <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>{`\u2193`}</div>
-        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.isFirst && '50'}>{`\u2191`}</div>
+        <DeleteButton thing={thing} />
+        <MoveDownButton thing={thing} />
+        <MoveUpButton thing={thing} />
       </div>
     </div>
   );

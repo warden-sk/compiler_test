@@ -14,8 +14,8 @@ function Input() {
       const keyElement = window.document.querySelector('#key') as HTMLInputElement;
       const listElement = window.document.querySelector('#list') as HTMLInputElement | undefined;
 
-      const key = keyElement.value.replace(/^\s+|\s+$/g, '');
-      const list = listElement?.value.replace(/^\s+|\s+$/g, '');
+      const key = keyElement.value;
+      const list = listElement?.value;
 
       if (key.length) {
         things.add(key, list ?? '-1');
