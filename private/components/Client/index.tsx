@@ -6,11 +6,11 @@ import React from 'react';
 import context from '../../helpers/context';
 import decodeThings from '../../helpers/decodeThings';
 import encodeThings from '../../helpers/encodeThings';
-import EnhancedThings from '../../helpers/EnhancedThings';
+import Things from '../../helpers/Things';
 import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
-import Things from '../Things';
+import ThingsComponent from '../Things';
 import './index.css';
 
 function Client() {
@@ -34,7 +34,7 @@ function Client() {
       value={{
         currentListName,
         setCurrentListName,
-        things: new EnhancedThings(setThings, things),
+        things: new Things(setThings, things),
       }}
     >
       <div className="container" height="100" mX="auto" p="4">
@@ -44,7 +44,7 @@ function Client() {
           <div fontSize="9" fontWeight="600">
             Things
           </div>
-          <Things />
+          <ThingsComponent />
         </div>
       </div>
     </context.Provider>
