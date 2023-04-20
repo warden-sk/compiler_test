@@ -17,12 +17,12 @@ class EnhancedThings {
     this.things = things.map((thing, i) => new EnhancedThing(i, setThings, thing));
   }
 
-  add(key: string) {
-    this.setThings(things => {
-      const newThing = { createdAt: new Date(), isDone: false, key };
+  add(key: string): Thing {
+    const newThing = { createdAt: new Date(), isDone: false, key };
 
-      return [...things, newThing];
-    });
+    this.setThings(things => [...things, newThing]);
+
+    return newThing;
   }
 
   get(i: number): EnhancedThing {

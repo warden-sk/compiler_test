@@ -34,7 +34,6 @@ function Client() {
       value={{
         currentListName,
         setCurrentListName,
-        setThings,
         things: new EnhancedThings(setThings, things),
       }}
     >
