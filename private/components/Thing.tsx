@@ -50,16 +50,8 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         {'\u2713'}
       </div>
       <div width="100">
-        <input
-          border="0"
-          defaultValue={thing.key}
-          fontSize="4"
-          onKeyDown={e => onUpdate(e)}
-          p="2"
-          type="text"
-          width="100"
-        />
-        <div fontSize="2" opacity="50" p="2">
+        <input border="0" defaultValue={thing.key} fontSize="4" onKeyDown={e => onUpdate(e)} type="text" width="100" />
+        <div fontSize="2" opacity="50">
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
