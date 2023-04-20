@@ -19,7 +19,9 @@ function decodeThings(things: string): Thing[] {
   let decodedThings: Thing[] = [];
 
   while (($ = pattern.exec(things)) !== null) {
-    decodedThings = [...decodedThings, { createdAt: new Date(+$[1]), isDone: $[2] === '1', key: $[3], list: $[4] }];
+    const decodedThing = { createdAt: new Date(+$[1]), isDone: $[2] === '1', key: $[3], list: $[4] };
+
+    decodedThings = [...decodedThings, decodedThing];
   }
 
   return decodedThings;

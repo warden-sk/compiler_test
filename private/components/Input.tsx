@@ -18,7 +18,7 @@ function Input() {
       const list = listElement?.value.replace(/^\s+|\s+$/g, '');
 
       if (key.length) {
-        things.add(key, list ?? 'undefined');
+        things.add(key, list ?? '-1');
 
         keyElement.value = '';
         listElement && (listElement.value = '');

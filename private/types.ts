@@ -3,7 +3,7 @@
  */
 
 import type React from 'react';
-import type T from './helpers/Thing';
+import type ThingHelper from './helpers/Thing';
 
 export interface Thing {
   createdAt: Date;
@@ -14,7 +14,7 @@ export interface Thing {
 
 export interface ThingInput extends UseDraggableOutput {
   key: string;
-  thing: T;
+  thing: ThingHelper;
 }
 
 export interface UseDraggableOutput {

@@ -11,7 +11,7 @@ class Thing {
   key: string;
   list: string;
 
-  constructor(public i: number, public parent: Things, public thing: T) {
+  constructor(public i: number, public parent: Things, thing: T) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;
