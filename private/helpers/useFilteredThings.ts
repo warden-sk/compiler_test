@@ -13,12 +13,13 @@ function useFilteredThings(listName?: string): EnhancedThing[] {
 
   let filteredThings = [...things.things];
 
-  if ($ === 'Done') {
+  if ($ === 'All') {
+  } else if ($ === 'Done') {
     filteredThings = filteredThings.filter(thing => thing.isDone);
-  }
-
-  if ($ === 'Not done') {
+  } else if ($ === 'Not done') {
     filteredThings = filteredThings.filter(thing => !thing.isDone);
+  } else {
+    filteredThings = filteredThings.filter(thing => thing.list === $);
   }
 
   return filteredThings;
