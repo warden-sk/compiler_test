@@ -9,7 +9,7 @@ import type { ThingInput } from '../types';
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const { things } = React.useContext(context);
 
-  function onUpdate(e: React.KeyboardEvent<HTMLInputElement>, j: number) {
+  function onUpdate(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
@@ -55,7 +55,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
           border="0"
           defaultValue={thing.key}
           fontSize="4"
-          onKeyDown={e => onUpdate(e, thing.i)}
+          onKeyDown={e => onUpdate(e)}
           p="2"
           type="text"
           width="100"

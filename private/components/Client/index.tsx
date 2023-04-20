@@ -35,7 +35,7 @@ function Client() {
         currentListName,
         setCurrentListName,
         setThings,
-        things: things.map((thing, i) => new EnhancedThing(i, setThings, thing, things)),
+        things: things.map((thing, i) => new EnhancedThing(i, setThings, thing)),
       }}
     >
       <div className="container" height="100" mX="auto" p="4">
