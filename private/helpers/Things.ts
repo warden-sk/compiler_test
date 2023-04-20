@@ -24,7 +24,7 @@ class Things {
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   *[Symbol.iterator]() {
-    const things = this.filter(this.currentListName);
+    const things = this.filter();
 
     for (const thing of things) {
       yield thing;
@@ -41,8 +41,8 @@ class Things {
     return newThing;
   }
 
-  filter(listName: string): Thing[] {
-    /* (1) */ listName = listName ?? 'All';
+  filter(listName?: string): Thing[] {
+    /* (1) */ listName = listName ?? this.currentListName;
 
     /* (2) */ let filteredThings = [...this.things];
 
