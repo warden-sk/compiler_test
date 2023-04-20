@@ -11,10 +11,12 @@ import MoveUpButton from './MoveUpButton';
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const onUpdate = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      const key = e.currentTarget.value;
+      const updatedKey = e.currentTarget.value;
 
-      if (key.length) {
-        thing.update(key);
+      if (updatedKey.length) {
+        thing.update(updatedKey);
+      } else {
+        e.currentTarget.value = thing.key;
       }
     }
   }, []);
@@ -30,6 +32,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       onDragStart={e => onDragStart(e, thing.i)}
       spaceX="4"
     >
+      {/* (1/3) */}
       <div
         border="2"
         borderRadius="2"
@@ -41,12 +44,14 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       >
         {'\u2713'}
       </div>
+      {/* (2/3) */}
       <div width="100">
         <input border="0" defaultValue={thing.key} fontSize="5" onKeyDown={e => onUpdate(e)} type="text" width="100" />
         <div fontSize="1" opacity="50">
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
+      {/* (3/3) */}
       <div display="flex" fontSize="5" opacity="50" spaceX="2">
         <DeleteButton thing={thing} />
         <MoveDownButton thing={thing} />
