@@ -28,6 +28,8 @@ class EnhancedThing {
     return this.i === this.parent.size - 1;
   }
 
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
   delete() {
     this.parent.setThings(things => {
       return things.filter((thing, i) => {

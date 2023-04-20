@@ -17,11 +17,15 @@ class EnhancedThings {
     return this.things.length;
   }
 
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
   *[Symbol.iterator]() {
     for (const thing of this.things) {
       yield thing;
     }
   }
+
+  /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   add(key: string, list: string): Thing {
     const newThing = { createdAt: new Date(), isDone: false, key, list };
