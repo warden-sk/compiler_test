@@ -3,11 +3,11 @@
  */
 
 import React from 'react';
-import context from '../helpers/context';
+import * as h from '../helpers';
 
 function Input() {
   const [a, setA] = React.useState<boolean>(false);
-  const { things } = React.useContext(context);
+  const { things } = React.useContext(h.context);
 
   const onKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {

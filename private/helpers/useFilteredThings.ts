@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import context from '../helpers/context';
+import context from './context';
 import type Thing from './Thing';
 
 function useFilteredThings(listName?: string): Thing[] {

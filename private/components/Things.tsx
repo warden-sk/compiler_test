@@ -3,13 +3,12 @@
  */
 
 import React from 'react';
-import useDraggable from '../helpers/useDraggable';
-import useFilteredThings from '../helpers/useFilteredThings';
+import * as h from '../helpers';
 import Thing from './Thing';
 
 function Things() {
-  const draggable = useDraggable();
-  const filteredThings = useFilteredThings();
+  const draggable = h.useDraggable();
+  const filteredThings = h.useFilteredThings();
 
   if (filteredThings.length) {
     return (

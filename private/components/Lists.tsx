@@ -3,11 +3,10 @@
  */
 
 import React from 'react';
-import context from '../helpers/context';
-import useFilteredThings from '../helpers/useFilteredThings';
+import * as h from '../helpers';
 
 function Option({ listName }: { key: React.Key; listName: string }) {
-  const filteredThings = useFilteredThings(listName);
+  const filteredThings = h.useFilteredThings(listName);
 
   return (
     <option value={listName}>
@@ -17,7 +16,7 @@ function Option({ listName }: { key: React.Key; listName: string }) {
 }
 
 function Lists() {
-  const { setCurrentListName, things } = React.useContext(context);
+  const { setCurrentListName, things } = React.useContext(h.context);
 
   const lists: string[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list).filter(Boolean))];
 

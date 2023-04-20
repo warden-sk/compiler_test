@@ -3,14 +3,11 @@
  */
 
 import React from 'react';
-import context from '../../helpers/context';
-import decodeThings from '../../helpers/decodeThings';
-import encodeThings from '../../helpers/encodeThings';
-import Things from '../../helpers/Things';
+import * as h from '../../helpers';
 import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
-import ThingsComponent from '../Things';
+import Things from '../Things';
 import './index.css';
 
 function Client() {
@@ -21,20 +18,20 @@ function Client() {
     const things = localStorage.getItem('things');
 
     if (things) {
-      setThings(decodeThings(things));
+      setThings(h.decodeThings(things));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem('things', encodeThings(things));
-  }, [encodeThings(things)]);
+    localStorage.setItem('things', h.encodeThings(things));
+  }, [h.encodeThings(things)]);
 
   return (
-    <context.Provider
+    <h.context.Provider
       value={{
         currentListName,
         setCurrentListName,
-        things: new Things(setThings, things),
+        things: new h.Things(setThings, things),
       }}
     >
       <div className="container" height="100" mX="auto" p="4">
@@ -44,10 +41,10 @@ function Client() {
           <div fontSize="9" fontWeight="600">
             Things
           </div>
-          <ThingsComponent />
+          <Things />
         </div>
       </div>
-    </context.Provider>
+    </h.context.Provider>
   );
 }
 
