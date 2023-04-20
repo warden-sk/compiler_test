@@ -24,6 +24,10 @@ class EnhancedThings {
       return [...things, newThing];
     });
   }
+
+  get(i: number): EnhancedThing {
+    return this.things.filter(thing => thing.i === i)[0];
+  }
 }
 
 export default EnhancedThings;

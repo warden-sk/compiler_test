@@ -8,7 +8,7 @@ import type { UseDraggableOutput } from '../types';
 
 function useDraggable(): UseDraggableOutput {
   const [currentThingI, setCurrentThingI] = React.useState<number>();
-  const { setThings, things } = React.useContext(context);
+  const { things } = React.useContext(context);
 
   const onDragEnd = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
     setCurrentThingI(undefined);
@@ -19,16 +19,14 @@ function useDraggable(): UseDraggableOutput {
       e.preventDefault();
 
       if (currentThingI !== i) {
-        const newThings = [...things.things];
-        newThings.splice(currentThingI!, 1);
-        newThings.splice(i, 0, things.things[currentThingI!]);
+        const thing = things.get(currentThingI!);
 
-        setThings(newThings);
+        thing.move(i);
 
         setCurrentThingI(i);
       }
     },
-    [currentThingI, setThings, things]
+    [currentThingI]
   );
 
   const onDragStart = React.useCallback((e: React.DragEvent<HTMLDivElement>, i: number) => {
