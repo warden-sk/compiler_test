@@ -3,12 +3,9 @@
  */
 
 import React from 'react';
-import context from '../helpers/context';
 import type { ThingInput } from '../types';
 
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
-  const { things } = React.useContext(context);
-
   const onUpdate = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');

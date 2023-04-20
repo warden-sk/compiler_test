@@ -18,7 +18,7 @@ function encodeThings(things: Thing[]): string {
     const isDone: number = thing.isDone ? 1 : 0;
     const key: string = thing.key.replace(/([:;])/g, '\\$1');
 
-    return `${i ? `${$};` : ''}${createdAt},${isDone},${key}`;
+    return `${i ? `${$};` : ''}${createdAt},${isDone},undefined,${key}`;
   }, '');
 }
 

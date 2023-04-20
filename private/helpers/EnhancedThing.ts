@@ -7,12 +7,10 @@ import type EnhancedThings from './EnhancedThings';
 
 class EnhancedThing {
   createdAt: Date;
-  i: number;
   isDone: boolean;
   key: string;
-  parent: EnhancedThings;
 
-  constructor(i: number, parent: EnhancedThings, thing: Thing) {
+  constructor(public i: number, public parent: EnhancedThings, thing: Thing) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;

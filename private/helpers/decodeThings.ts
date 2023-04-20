@@ -4,7 +4,7 @@
 
 import type { Thing } from '../types';
 
-const pattern = /([0-9]{13}),(0|1),([^;]+)/g;
+const pattern = /([0-9]{13}),(0|1),([^,]+),([^;]+)/g;
 
 /**
  * From "0,0,Thing 1;0,1,Thing 2"

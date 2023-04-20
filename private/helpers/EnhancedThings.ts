@@ -7,11 +7,9 @@ import type { Thing } from '../types';
 import EnhancedThing from './EnhancedThing';
 
 class EnhancedThings {
-  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
   things: EnhancedThing[];
 
-  constructor(setThings: React.Dispatch<React.SetStateAction<Thing[]>>, things: Thing[]) {
-    this.setThings = setThings;
+  constructor(public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, things: Thing[]) {
     this.things = things.map((thing, i) => new EnhancedThing(i, this, thing));
   }
 
