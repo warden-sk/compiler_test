@@ -7,7 +7,7 @@ import type { Thing } from '../types';
 import EnhancedThing from './EnhancedThing';
 
 class EnhancedThings {
-  things: EnhancedThing[];
+  private things: EnhancedThing[];
 
   constructor(public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, things: Thing[]) {
     this.things = things.map((thing, i) => new EnhancedThing(i, this, thing));
@@ -15,6 +15,12 @@ class EnhancedThings {
 
   get size(): number {
     return this.things.length;
+  }
+
+  *[Symbol.iterator]() {
+    for (const thing of this.things) {
+      yield thing;
+    }
   }
 
   add(key: string, list: string): Thing {
@@ -27,12 +33,6 @@ class EnhancedThings {
 
   get(i: number): EnhancedThing {
     return this.things.filter(thing => thing.i === i)[0];
-  }
-
-  *[Symbol.iterator]() {
-    for (const thing of this.things) {
-      yield thing;
-    }
   }
 }
 

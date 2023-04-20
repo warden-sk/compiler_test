@@ -6,8 +6,35 @@ import React from 'react';
 import context from '../helpers/context';
 import useFilteredThings from '../helpers/useFilteredThings';
 
+function Option({ listName }: { key: string; listName: string }) {
+  const filteredThings = useFilteredThings(listName);
+
+  return (
+    <option value={listName}>
+      {listName} ({filteredThings.length})
+    </option>
+  );
+}
+
 function Lists() {
-  const { setCurrentListName } = React.useContext(context);
+  const { setCurrentListName, things } = React.useContext(context);
+
+  let lists: string[] = [...things].map(thing => thing.list);
+
+  lists = lists.reduce<string[]>(
+    ($, currentValue) => {
+      if (currentValue === 'undefined') {
+        return $;
+      }
+
+      if ($.indexOf(currentValue) !== -1) {
+        return $;
+      }
+
+      return [...$, currentValue];
+    },
+    ['All', 'Done', 'Not done']
+  );
 
   return (
     <div spaceY="2">
@@ -17,15 +44,9 @@ function Lists() {
       <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex" p="2" spaceX="2">
         <div>{'\u2193'}</div>
         <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
-          {['All', 'Done', 'Not done'].map(listName => {
-            const filteredThings = useFilteredThings(listName);
-
-            return (
-              <option key={listName} value={listName}>
-                {listName} ({filteredThings.length})
-              </option>
-            );
-          })}
+          {lists.map(listName => (
+            <Option key={listName} listName={listName} />
+          ))}
         </select>
       </div>
     </div>
