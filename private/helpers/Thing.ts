@@ -2,16 +2,16 @@
  * Copyright 2023 Marek Kobida
  */
 
-import type { Thing } from '../types';
-import type EnhancedThings from './EnhancedThings';
+import type { Thing as T } from '../types';
+import type Things from './Things';
 
-class EnhancedThing {
+class Thing {
   createdAt: Date;
   isDone: boolean;
   key: string;
   list: string;
 
-  constructor(public i: number, public parent: EnhancedThings, public thing: Thing) {
+  constructor(public i: number, public parent: Things, public thing: T) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;
@@ -81,4 +81,4 @@ class EnhancedThing {
   }
 }
 
-export default EnhancedThing;
+export default Thing;

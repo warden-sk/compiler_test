@@ -3,14 +3,14 @@
  */
 
 import type React from 'react';
-import type { Thing } from '../types';
-import EnhancedThing from './EnhancedThing';
+import type { Thing as T } from '../types';
+import Thing from './Thing';
 
-class EnhancedThings {
-  enhancedThing: EnhancedThing[];
+class Things {
+  enhancedThing: Thing[];
 
-  constructor(public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, public things: Thing[]) {
-    this.enhancedThing = things.map((thing, i) => new EnhancedThing(i, this, thing));
+  constructor(public setThings: React.Dispatch<React.SetStateAction<T[]>>, public things: T[]) {
+    this.enhancedThing = things.map((thing, i) => new Thing(i, this, thing));
   }
 
   get size(): number {
@@ -27,7 +27,7 @@ class EnhancedThings {
 
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-  add(key: string, list: string): Thing {
+  add(key: string, list: string): T {
     const newThing = { createdAt: new Date(), isDone: false, key, list };
 
     this.setThings(things => [...things, newThing]);
@@ -35,9 +35,9 @@ class EnhancedThings {
     return newThing;
   }
 
-  get(i: number): EnhancedThing {
+  get(i: number): Thing {
     return this.enhancedThing.filter(thing => thing.i === i)[0];
   }
 }
 
-export default EnhancedThings;
+export default Things;

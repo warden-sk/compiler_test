@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import type EnhancedThings from './EnhancedThings';
+import type Things from './Things';
 
 interface ThingsContext {
-  things: EnhancedThings;
+  things: Things;
 }
 
 interface Context extends ThingsContext {
