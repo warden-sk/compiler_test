@@ -31,6 +31,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       onDragStart={e => onDragStart(e, thing.i)}
       spaceX="4"
     >
+      <div>{thing.i}</div>
       <div display="flex" opacity="50" spaceX="2">
         <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '0'}>{`\u2191`}</div>
         <div
