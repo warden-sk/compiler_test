@@ -18,7 +18,12 @@ function Option({ listName }: { key: React.Key; listName: string }) {
 function Lists() {
   const { setCurrentListName, things } = React.useContext(h.context);
 
-  const lists: string[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list).filter(Boolean))];
+  const lists: string[] = [
+    'All',
+    'Done',
+    'Not done',
+    ...new Set([...things].map(thing => thing.list).filter(list => list !== '-1')),
+  ];
 
   return (
     <div spaceY="2">
