@@ -41,7 +41,7 @@ function Client() {
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />
           <Input />
-          <div fontSize="8" fontWeight="600">
+          <div fontSize="9" fontWeight="600">
             Things
           </div>
           <Things />

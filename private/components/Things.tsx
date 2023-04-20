@@ -13,7 +13,7 @@ function Things() {
 
   if (filteredThings.length) {
     return (
-      <div spaceY="2">
+      <div spaceY="4">
         {filteredThings.map(thing => (
           <Thing {...draggable} key={thing.key} thing={thing} />
         ))}

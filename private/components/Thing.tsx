@@ -25,24 +25,16 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       className={{ done: thing.isDone }}
       display="flex"
       draggable
-      lineHeight="1"
       onDragEnd={e => onDragEnd(e, thing.i)}
       onDragOver={e => onDragOver(e, thing.i)}
       onDragStart={e => onDragStart(e, thing.i)}
       spaceX="4"
     >
-      <div display="flex" opacity="50" spaceX="2">
-        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '0'}>{`\u2191`}</div>
-        <div
-          cursor="pointer"
-          onClick={() => thing.moveDown()}
-          opacity={thing.i === things.size - 1 && '0'}
-        >{`\u2193`}</div>
-      </div>
       <div
         border="2"
         borderRadius="2"
         cursor="pointer"
+        lineHeight="1"
         onClick={() => thing.done()}
         opacity={!thing.isDone && '50'}
         p="2"
@@ -50,13 +42,21 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         {'\u2713'}
       </div>
       <div width="100">
-        <input border="0" defaultValue={thing.key} fontSize="4" onKeyDown={e => onUpdate(e)} type="text" width="100" />
-        <div fontSize="2" opacity="50">
+        <input border="0" defaultValue={thing.key} fontSize="5" onKeyDown={e => onUpdate(e)} type="text" width="100" />
+        <div fontSize="1" opacity="50">
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
-      <div cursor="pointer" onClick={() => thing.delete()} opacity="50" p="2">
-        {'\u2717'}
+      <div display="flex" opacity="50" spaceX="2">
+        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '50'}>{`\u2191`}</div>
+        <div
+          cursor="pointer"
+          onClick={() => thing.moveDown()}
+          opacity={thing.i === things.size - 1 && '50'}
+        >{`\u2193`}</div>
+        <div cursor="pointer" onClick={() => thing.delete()}>
+          {'\u2717'}
+        </div>
       </div>
     </div>
   );
