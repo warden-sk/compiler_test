@@ -18,7 +18,7 @@ class EnhancedThings {
   }
 
   add(key: string): Thing {
-    const newThing = { createdAt: new Date(), isDone: false, key };
+    const newThing = { createdAt: new Date(), isDone: false, key, list: 'undefined' };
 
     this.setThings(things => [...things, newThing]);
 

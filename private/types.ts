@@ -9,6 +9,7 @@ export interface Thing {
   createdAt: Date;
   isDone: boolean;
   key: string;
+  list: string;
 }
 
 export interface ThingInput extends UseDraggableOutput {
