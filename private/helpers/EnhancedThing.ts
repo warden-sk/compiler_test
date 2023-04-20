@@ -11,7 +11,7 @@ class EnhancedThing {
   key: string;
   list: string;
 
-  constructor(public i: number, public parent: EnhancedThings, thing: Thing) {
+  constructor(public i: number, public parent: EnhancedThings, public thing: Thing) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;

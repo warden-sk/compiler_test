@@ -45,11 +45,11 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         </div>
       </div>
       <div display="flex" fontSize="5" opacity="50" spaceX="2">
-        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.isFirst && '50'}>{`\u2191`}</div>
-        <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>{`\u2193`}</div>
         <div cursor="pointer" onClick={() => thing.delete()}>
           {'\u2717'}
         </div>
+        <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>{`\u2193`}</div>
+        <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.isFirst && '50'}>{`\u2191`}</div>
       </div>
     </div>
   );

@@ -7,20 +7,20 @@ import type { Thing } from '../types';
 import EnhancedThing from './EnhancedThing';
 
 class EnhancedThings {
-  private things: EnhancedThing[];
+  enhancedThing: EnhancedThing[];
 
-  constructor(public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, things: Thing[]) {
-    this.things = things.map((thing, i) => new EnhancedThing(i, this, thing));
+  constructor(public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, public things: Thing[]) {
+    this.enhancedThing = things.map((thing, i) => new EnhancedThing(i, this, thing));
   }
 
   get size(): number {
-    return this.things.length;
+    return this.enhancedThing.length;
   }
 
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   *[Symbol.iterator]() {
-    for (const thing of this.things) {
+    for (const thing of this.enhancedThing) {
       yield thing;
     }
   }
@@ -36,7 +36,7 @@ class EnhancedThings {
   }
 
   get(i: number): EnhancedThing {
-    return this.things.filter(thing => thing.i === i)[0];
+    return this.enhancedThing.filter(thing => thing.i === i)[0];
   }
 }
 
