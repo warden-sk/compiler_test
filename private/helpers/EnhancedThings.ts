@@ -28,6 +28,12 @@ class EnhancedThings {
   get(i: number): EnhancedThing {
     return this.things.filter(thing => thing.i === i)[0];
   }
+
+  *[Symbol.iterator]() {
+    for (const thing of this.things) {
+      yield thing;
+    }
+  }
 }
 
 export default EnhancedThings;

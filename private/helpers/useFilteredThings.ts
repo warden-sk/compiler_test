@@ -11,7 +11,7 @@ function useFilteredThings(listName?: string): EnhancedThing[] {
 
   const $: string = listName ?? currentListName;
 
-  let filteredThings = [...things.things];
+  let filteredThings = [...things];
 
   if ($ === 'All') {
   } else if ($ === 'Done') {
