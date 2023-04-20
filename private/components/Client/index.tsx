@@ -6,7 +6,7 @@ import React from 'react';
 import context from '../../helpers/context';
 import decodeThings from '../../helpers/decodeThings';
 import encodeThings from '../../helpers/encodeThings';
-import EnhancedThing from '../../helpers/EnhancedThing';
+import EnhancedThings from '../../helpers/EnhancedThings';
 import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
@@ -35,7 +35,7 @@ function Client() {
         currentListName,
         setCurrentListName,
         setThings,
-        things: things.map((thing, i) => new EnhancedThing(i, setThings, thing)),
+        things: new EnhancedThings(setThings, things),
       }}
     >
       <div className="container" height="100" mX="auto" p="4">

@@ -6,18 +6,14 @@ import React from 'react';
 import context from '../helpers/context';
 
 function Input() {
-  const { setThings } = React.useContext(context);
+  const { things } = React.useContext(context);
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
       if (key.length) {
-        setThings(things => {
-          const newThing = { createdAt: new Date(), isDone: false, key };
-
-          return [...things, newThing];
-        });
+        things.add(key);
 
         e.currentTarget.value = '';
       }

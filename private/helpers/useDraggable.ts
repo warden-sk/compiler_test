@@ -19,9 +19,9 @@ function useDraggable(): UseDraggableOutput {
       e.preventDefault();
 
       if (currentThingI !== i) {
-        const newThings = [...things];
+        const newThings = [...things.things];
         newThings.splice(currentThingI!, 1);
-        newThings.splice(i, 0, things[currentThingI!]);
+        newThings.splice(i, 0, things.things[currentThingI!]);
 
         setThings(newThings);
 

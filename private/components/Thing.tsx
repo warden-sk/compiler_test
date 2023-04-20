@@ -9,7 +9,7 @@ import type { ThingInput } from '../types';
 function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
   const { things } = React.useContext(context);
 
-  function onUpdate(e: React.KeyboardEvent<HTMLInputElement>) {
+  const onUpdate = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
@@ -17,7 +17,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         thing.update(key);
       }
     }
-  }
+  }, []);
 
   return (
     <div
@@ -31,13 +31,12 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
       onDragStart={e => onDragStart(e, thing.i)}
       spaceX="4"
     >
-      <div>{thing.i}</div>
       <div display="flex" opacity="50" spaceX="2">
         <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '0'}>{`\u2191`}</div>
         <div
           cursor="pointer"
           onClick={() => thing.moveDown()}
-          opacity={thing.i === things.length - 1 && '0'}
+          opacity={thing.i === things.size - 1 && '0'}
         >{`\u2193`}</div>
       </div>
       <div

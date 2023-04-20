@@ -7,27 +7,31 @@ import type { Thing } from '../types';
 
 class EnhancedThing {
   createdAt: Date;
+  i: number;
   isDone: boolean;
   key: string;
+  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
 
-  constructor(public i: number, public setThings: React.Dispatch<React.SetStateAction<Thing[]>>, public thing: Thing) {
+  constructor(i: number, setThings: React.Dispatch<React.SetStateAction<Thing[]>>, thing: Thing) {
     this.createdAt = thing.createdAt;
+    this.i = i;
     this.isDone = thing.isDone;
     this.key = thing.key;
+    this.setThings = setThings;
   }
 
   delete() {
     this.setThings(things => {
-      return things.filter((thing, k) => {
-        return k !== this.i;
+      return things.filter((thing, i) => {
+        return i !== this.i;
       });
     });
   }
 
   done() {
     this.setThings(things => {
-      return things.map((thing, k) => {
-        if (k === this.i) {
+      return things.map((thing, i) => {
+        if (i === this.i) {
           return { ...thing, isDone: !thing.isDone };
         } else {
           return thing;
@@ -36,30 +40,28 @@ class EnhancedThing {
     });
   }
 
-  moveDown() {
+  move(to: number) {
     this.setThings(things => {
       const newThings = [...things];
       newThings.splice(this.i, 1);
-      newThings.splice(this.i + 1, 0, things[this.i]);
+      newThings.splice(to, 0, things[this.i]);
 
       return newThings;
     });
   }
 
-  moveUp() {
-    this.setThings(things => {
-      const newThings = [...things];
-      newThings.splice(this.i, 1);
-      newThings.splice(this.i - 1, 0, things[this.i]);
+  moveDown() {
+    this.move(this.i + 1);
+  }
 
-      return newThings;
-    });
+  moveUp() {
+    this.move(this.i - 1);
   }
 
   update(key: string) {
     this.setThings(things => {
-      return things.map((thing, k) => {
-        if (k === this.i) {
+      return things.map((thing, i) => {
+        if (i === this.i) {
           return { ...thing, key };
         } else {
           return thing;
