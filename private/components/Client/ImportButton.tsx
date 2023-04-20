@@ -14,17 +14,19 @@ function ImportButton() {
         display="none"
         id="import"
         onChange={e => {
-          const file = e.currentTarget.files![0];
+          if (e.currentTarget.files) {
+            const file = e.currentTarget.files[0];
 
-          const fileReader = new FileReader();
+            const fileReader = new FileReader();
 
-          fileReader.addEventListener('load', () => {
-            if (typeof fileReader.result === 'string') {
-              setThings(h.decodeThings(fileReader.result));
-            }
-          });
+            fileReader.addEventListener('load', () => {
+              if (fileReader.result) {
+                setThings(h.decodeThings(fileReader.result.toString()));
+              }
+            });
 
-          fileReader.readAsText(file);
+            fileReader.readAsText(file);
+          }
         }}
         type="file"
       />
