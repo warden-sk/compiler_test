@@ -9,7 +9,11 @@ import Thing from './Thing';
 class Things {
   private things: Thing[];
 
-  constructor(public setThings: React.Dispatch<React.SetStateAction<T[]>>, things: T[]) {
+  constructor(
+    public currentListName: string,
+    public setThings: React.Dispatch<React.SetStateAction<T[]>>,
+    things: T[]
+  ) {
     this.things = things.map((thing, i) => new Thing(i, this, thing));
   }
 
@@ -20,7 +24,9 @@ class Things {
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   *[Symbol.iterator]() {
-    for (const thing of this.things) {
+    const things = this.filter(this.currentListName);
+
+    for (const thing of things) {
       yield thing;
     }
   }
@@ -33,6 +39,28 @@ class Things {
     this.setThings(things => [...things, newThing]);
 
     return newThing;
+  }
+
+  filter(listName: string): Thing[] {
+    /* (1) */ listName = listName ?? 'All';
+
+    /* (2) */ let filteredThings = [...this.things];
+
+    switch (listName) {
+      case 'All':
+        break;
+      case 'Done':
+        filteredThings = filteredThings.filter(thing => thing.isDone);
+        break;
+      case 'Not done':
+        filteredThings = filteredThings.filter(thing => !thing.isDone);
+        break;
+      default:
+        filteredThings = filteredThings.filter(thing => thing.list === listName);
+        break;
+    }
+
+    return filteredThings;
   }
 
   get(i: number): Thing {

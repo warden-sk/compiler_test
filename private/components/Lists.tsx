@@ -6,11 +6,11 @@ import React from 'react';
 import * as h from '../helpers';
 
 function Option({ listName }: { key: React.Key; listName: string }) {
-  const filteredThings = h.useFilteredThings(listName);
+  const { things } = React.useContext(h.context);
 
   return (
     <option value={listName}>
-      {listName} {`\u2192`} {filteredThings.length}
+      {listName} {`\u2192`} {things.filter(listName).length}
     </option>
   );
 }

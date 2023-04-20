@@ -34,7 +34,7 @@ function Client() {
         currentListName,
         setCurrentListName,
         setThings,
-        things: new h.Things(setThings, things),
+        things: new h.Things(currentListName, setThings, things),
       }}
     >
       <div className="container" height="100" mX="auto" p="4">

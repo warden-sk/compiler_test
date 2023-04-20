@@ -7,13 +7,14 @@ import * as h from '../helpers';
 import Thing from './Thing';
 
 function Things() {
-  const draggable = h.useDraggable();
-  const filteredThings = h.useFilteredThings();
+  const { things } = React.useContext(h.context);
 
-  if (filteredThings.length) {
+  const draggable = h.useDraggable();
+
+  if ([...things].length) {
     return (
       <div spaceY="4">
-        {filteredThings.map(thing => (
+        {[...things].map(thing => (
           <Thing {...draggable} key={thing.key} thing={thing} />
         ))}
       </div>
