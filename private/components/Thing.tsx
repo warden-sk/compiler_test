@@ -47,7 +47,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
           Created at {thing.createdAt.toLocaleString()}
         </div>
       </div>
-      <div display="flex" opacity="50" spaceX="2">
+      <div display="flex" fontSize="5" opacity="50" spaceX="2">
         <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.i === 0 && '50'}>{`\u2191`}</div>
         <div
           cursor="pointer"
