@@ -7,6 +7,7 @@ import type ThingHelper from './helpers/Thing';
 
 export interface Thing {
   createdAt: Date;
+  doneAt?: Date;
   isDone: boolean;
   key: string;
   list: string;

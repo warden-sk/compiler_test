@@ -7,12 +7,14 @@ import type Things from './Things';
 
 class Thing {
   createdAt: Date;
+  doneAt?: Date;
   isDone: boolean;
   key: string;
   list: string;
 
   constructor(public i: number, public parent: Things, thing: T) {
     this.createdAt = thing.createdAt;
+    this.doneAt = thing.doneAt;
     this.i = i;
     this.isDone = thing.isDone;
     this.key = thing.key;
@@ -42,7 +44,7 @@ class Thing {
     this.parent.setThings(things => {
       return things.map((thing, i) => {
         if (i === this.i) {
-          return { ...thing, isDone: !thing.isDone };
+          return { ...thing, doneAt: thing.isDone ? undefined : new Date(), isDone: !thing.isDone };
         } else {
           return thing;
         }
