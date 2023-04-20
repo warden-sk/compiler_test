@@ -3,9 +3,11 @@
  */
 
 import React from 'react';
+import type { Thing } from '../types';
 import type Things from './Things';
 
 interface ThingsContext {
+  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
   things: Things;
 }
 

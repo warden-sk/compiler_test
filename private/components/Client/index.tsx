@@ -8,6 +8,8 @@ import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
 import Things from '../Things';
+import ExportButton from './ExportButton';
+import ImportButton from './ImportButton';
 import './index.css';
 
 function Client() {
@@ -31,6 +33,7 @@ function Client() {
       value={{
         currentListName,
         setCurrentListName,
+        setThings,
         things: new h.Things(setThings, things),
       }}
     >
@@ -38,6 +41,8 @@ function Client() {
         <div display="flex" flexDirection="column" height="100" spaceY="4">
           <Lists />
           <Input />
+          <ExportButton />
+          <ImportButton />
           <div fontSize="9" fontWeight="600">
             Things
           </div>
