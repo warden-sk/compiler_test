@@ -20,6 +20,8 @@ function Things() {
       </div>
     );
   }
+
+  return <div>No things are available.</div>;
 }
 
 export default Things;

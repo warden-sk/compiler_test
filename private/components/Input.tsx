@@ -8,7 +8,7 @@ import context from '../helpers/context';
 function Input() {
   const { things } = React.useContext(context);
 
-  function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+  const onKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value.replace(/^\s+|\s+$/g, '');
 
@@ -18,7 +18,7 @@ function Input() {
         e.currentTarget.value = '';
       }
     }
-  }
+  }, []);
 
   return (
     <div spaceY="2">
