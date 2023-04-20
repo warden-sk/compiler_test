@@ -2,26 +2,34 @@
  * Copyright 2023 Marek Kobida
  */
 
-import type React from 'react';
 import type { Thing } from '../types';
+import type EnhancedThings from './EnhancedThings';
 
 class EnhancedThing {
   createdAt: Date;
   i: number;
   isDone: boolean;
   key: string;
-  setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
+  parent: EnhancedThings;
 
-  constructor(i: number, setThings: React.Dispatch<React.SetStateAction<Thing[]>>, thing: Thing) {
+  constructor(i: number, parent: EnhancedThings, thing: Thing) {
     this.createdAt = thing.createdAt;
     this.i = i;
     this.isDone = thing.isDone;
     this.key = thing.key;
-    this.setThings = setThings;
+    this.parent = parent;
+  }
+
+  get isFirst(): boolean {
+    return this.i === 0;
+  }
+
+  get isLast(): boolean {
+    return this.i === this.parent.size - 1;
   }
 
   delete() {
-    this.setThings(things => {
+    this.parent.setThings(things => {
       return things.filter((thing, i) => {
         return i !== this.i;
       });
@@ -29,7 +37,7 @@ class EnhancedThing {
   }
 
   done() {
-    this.setThings(things => {
+    this.parent.setThings(things => {
       return things.map((thing, i) => {
         if (i === this.i) {
           return { ...thing, isDone: !thing.isDone };
@@ -41,7 +49,7 @@ class EnhancedThing {
   }
 
   move(to: number) {
-    this.setThings(things => {
+    this.parent.setThings(things => {
       const newThings = [...things];
       newThings.splice(this.i, 1);
       newThings.splice(to, 0, things[this.i]);
@@ -59,7 +67,7 @@ class EnhancedThing {
   }
 
   update(key: string) {
-    this.setThings(things => {
+    this.parent.setThings(things => {
       return things.map((thing, i) => {
         if (i === this.i) {
           return { ...thing, key };

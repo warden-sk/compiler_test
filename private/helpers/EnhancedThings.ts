@@ -8,13 +8,15 @@ import EnhancedThing from './EnhancedThing';
 
 class EnhancedThings {
   setThings: React.Dispatch<React.SetStateAction<Thing[]>>;
-  size: number;
   things: EnhancedThing[];
 
   constructor(setThings: React.Dispatch<React.SetStateAction<Thing[]>>, things: Thing[]) {
     this.setThings = setThings;
-    this.size = things.length;
-    this.things = things.map((thing, i) => new EnhancedThing(i, setThings, thing));
+    this.things = things.map((thing, i) => new EnhancedThing(i, this, thing));
+  }
+
+  get size(): number {
+    return this.things.length;
   }
 
   add(key: string): Thing {
