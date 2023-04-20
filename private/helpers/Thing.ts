@@ -74,7 +74,7 @@ class Thing {
     this.parent.setThings(things => {
       return things.map((thing, i) => {
         if (i === this.i) {
-          return { ...thing, key: key.replace(/^\s+|\s+$/g, '') };
+          return { ...thing, key };
         } else {
           return thing;
         }
