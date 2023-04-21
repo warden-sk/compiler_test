@@ -34,13 +34,16 @@ function ImportButton() {
         border="2"
         borderRadius="2"
         cursor="pointer"
+        display="flex"
         fontWeight="600"
         onClick={() => {
           (window.document.querySelector('#import') as HTMLInputElement).click();
         }}
         p="2"
+        spaceX="2"
       >
-        Import
+        <div>{'\u2191'}</div>
+        <div>Import</div>
       </div>
     </div>
   );

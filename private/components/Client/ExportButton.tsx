@@ -14,6 +14,7 @@ function ExportButton() {
         border="2"
         borderRadius="2"
         cursor="pointer"
+        display="flex"
         fontWeight="600"
         onClick={() => {
           const file = h.encodeThings([...things]);
@@ -28,8 +29,10 @@ function ExportButton() {
           URL.revokeObjectURL(fileUrl);
         }}
         p="2"
+        spaceX="2"
       >
-        Export
+        <div>{'\u2193'}</div>
+        <div>Export</div>
       </div>
     );
   }

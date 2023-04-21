@@ -12,7 +12,7 @@ function Lists() {
   const lists: (string | undefined)[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list))];
 
   return (
-    <div spaceY="2">
+    <div opacity="50" spaceY="2">
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists">
         Lists
       </label>
