@@ -36,8 +36,8 @@ function Client() {
         things: new h.Things(currentListName, setThings, things),
       }}
     >
-      <div className="container" height="100" mX="auto" p="4">
-        <div display="flex" flexDirection="column" height="100" spaceY="4">
+      <div className="container" mX="auto" p="4">
+        <div display="flex" flexDirection="column" spaceY="4">
           <Lists />
           <Input />
           <div display="flex" opacity="50" spaceX="2">
