@@ -9,12 +9,7 @@ import Option from './Option';
 function Lists() {
   const { setCurrentListName, things } = React.useContext(h.context);
 
-  const lists: string[] = [
-    'All',
-    'Done',
-    'Not done',
-    ...new Set([...things].map(thing => thing.list).filter(list => list !== '-1')),
-  ];
+  const lists: string[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list).filter(Boolean))];
 
   return (
     <div spaceY="2">
