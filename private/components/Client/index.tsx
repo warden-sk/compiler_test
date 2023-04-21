@@ -16,7 +16,7 @@ function Client() {
   const [currentListName, setCurrentListName] = React.useState<string>('All');
   const [things, setThings] = React.useState<Thing[]>([]);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const things = localStorage.getItem('things');
 
     if (things) {
@@ -24,7 +24,7 @@ function Client() {
     }
   }, []);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     localStorage.setItem('things', h.encodeThings(things));
   }, [h.encodeThings(things)]);
 

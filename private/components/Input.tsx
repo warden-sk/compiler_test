@@ -11,7 +11,7 @@ function Input() {
   const onKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const keyElement = window.document.querySelector('#key') as HTMLInputElement;
-      const listElement = window.document.querySelector('#list') as HTMLInputElement;
+      const listElement = window.document.querySelector('#listName') as HTMLInputElement;
 
       const key = keyElement.value;
       const list = listElement.value;
