@@ -9,7 +9,7 @@ import Option from './Option';
 function Lists() {
   const { setCurrentListName, things } = React.useContext(h.context);
 
-  const lists: string[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list).filter(Boolean))];
+  const lists: (string | undefined)[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list))];
 
   return (
     <div spaceY="2">
@@ -19,9 +19,11 @@ function Lists() {
       <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex" p="2" spaceX="2">
         <div>{'\u2193'}</div>
         <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
-          {lists.map(listName => (
-            <Option key={listName} listName={listName} />
-          ))}
+          {lists.map(listName => {
+            if (listName) {
+              return <Option key={listName} listName={listName} />;
+            }
+          })}
         </select>
       </div>
     </div>
