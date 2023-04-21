@@ -4,6 +4,7 @@
 
 import React from 'react';
 import * as h from '../helpers';
+import ListNameInput from './ListNameInput';
 
 function Input() {
   const { things } = React.useContext(h.context);
@@ -31,12 +32,7 @@ function Input() {
         What has to be done?
       </label>
       <input border="2" borderRadius="2" id="key" onKeyDown={onKeyDown} p="2" type="text" width="100" />
-      <div opacity="50" spaceY="2">
-        <label cursor="pointer" display="block" fontWeight="600" htmlFor="listName">
-          List name
-        </label>
-        <input border="2" borderRadius="2" id="listName" onKeyDown={onKeyDown} p="2" type="text" width="100" />
-      </div>
+      <ListNameInput onKeyDown={onKeyDown} />
     </div>
   );
 }
