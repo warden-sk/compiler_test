@@ -34,7 +34,7 @@ class Things {
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
   add(key: string, list: string): T {
-    const newThing = { createdAt: new Date(), isDone: false, key: key, list: list };
+    const newThing = { createdAt: new Date(), isDone: false, key, list };
 
     this.setThings(things => [...things, newThing]);
 
