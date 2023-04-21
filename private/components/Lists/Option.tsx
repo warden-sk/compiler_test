@@ -10,7 +10,7 @@ function Option({ listName }: { key: React.Key; listName: string }) {
 
   return (
     <option value={listName}>
-      {listName} {`\u2192`} {things.filter(listName).length}
+      {listName} ({things.filter(listName).length})
     </option>
   );
 }
