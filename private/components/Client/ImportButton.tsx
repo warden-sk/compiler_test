@@ -6,10 +6,10 @@ import React from 'react';
 import * as h from '../../helpers';
 
 function ImportButton() {
-  const { setThings } = React.useContext(h.context);
+  const { things } = React.useContext(h.context);
 
   return (
-    <>
+    <div>
       <input
         display="none"
         id="import"
@@ -21,7 +21,7 @@ function ImportButton() {
 
             fileReader.addEventListener('load', () => {
               if (fileReader.result) {
-                setThings(h.decodeThings(fileReader.result.toString()));
+                things.setThings(h.decodeThings(fileReader.result.toString()));
               }
             });
 
@@ -40,9 +40,9 @@ function ImportButton() {
         }}
         p="2"
       >
-        Import things
+        Import
       </div>
-    </>
+    </div>
   );
 }
 

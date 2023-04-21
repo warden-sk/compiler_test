@@ -33,7 +33,6 @@ function Client() {
       value={{
         currentListName,
         setCurrentListName,
-        setThings,
         things: new h.Things(currentListName, setThings, things),
       }}
     >

@@ -29,7 +29,7 @@ function ExportButton() {
         }}
         p="2"
       >
-        Export things
+        Export
       </div>
     );
   }
