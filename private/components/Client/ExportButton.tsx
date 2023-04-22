@@ -8,7 +8,7 @@ import * as h from '../../helpers';
 function ExportButton() {
   const { things } = React.useContext(h.context);
 
-  if (things.size) {
+  if (things.length) {
     return (
       <div
         border="2"
@@ -18,6 +18,7 @@ function ExportButton() {
         fontWeight="600"
         onClick={() => {
           const file = h.encodeThings([...things]);
+
           const fileUrl = URL.createObjectURL(new Blob([file], { type: 'text/plain' }));
 
           const a = document.createElement('a');
@@ -31,8 +32,8 @@ function ExportButton() {
         p="2"
         spaceX="2"
       >
-        <div>{'\u2193'}</div>
-        <div>Export</div>
+        <div>{h.icons.down}</div>
+        <div>Export to file</div>
       </div>
     );
   }

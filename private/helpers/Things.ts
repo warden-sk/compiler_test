@@ -17,7 +17,7 @@ class Things {
     this.things = things.map((thing, i) => new Thing(i, this, thing));
   }
 
-  get size(): number {
+  get length(): number {
     return this.things.length;
   }
 

@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import type * as h from '../../helpers';
+import * as h from '../../helpers';
 
 function DeleteButton({ thing }: { thing: h.Thing }) {
   return (
     <div cursor="pointer" onClick={() => thing.delete()}>
-      {'\u2717'}
+      {h.icons.delete}
     </div>
   );
 }

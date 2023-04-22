@@ -42,8 +42,8 @@ function ImportButton() {
         p="2"
         spaceX="2"
       >
-        <div>{'\u2191'}</div>
-        <div>Import</div>
+        <div>{h.icons.up}</div>
+        <div>Import from file</div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ class Thing {
   }
 
   get isLast(): boolean {
-    return this.i === this.parent.size - 1;
+    return this.i === this.parent.length - 1;
   }
 
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */

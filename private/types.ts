@@ -14,7 +14,7 @@ export interface Thing {
 }
 
 export interface ThingInput extends UseDraggableOutput {
-  key: string;
+  key: React.Key;
   thing: T;
 }
 

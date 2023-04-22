@@ -17,7 +17,7 @@ function Lists() {
         Lists
       </label>
       <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex" p="2" spaceX="2">
-        <div>{'\u2193'}</div>
+        <div>{h.icons.down}</div>
         <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
           {lists.map(listName => {
             if (listName) {

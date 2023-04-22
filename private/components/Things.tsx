@@ -11,7 +11,7 @@ function Things() {
 
   const draggable = h.useDraggable();
 
-  if ([...things].length) {
+  if (things.length) {
     return (
       <div spaceY="4">
         {[...things].map(thing => (

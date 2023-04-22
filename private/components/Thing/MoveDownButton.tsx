@@ -3,10 +3,14 @@
  */
 
 import React from 'react';
-import type * as h from '../../helpers';
+import * as h from '../../helpers';
 
 function MoveDownButton({ thing }: { thing: h.Thing }) {
-  return <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>{`\u2193`}</div>;
+  return (
+    <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>
+      {h.icons.down}
+    </div>
+  );
 }
 
 export default MoveDownButton;
