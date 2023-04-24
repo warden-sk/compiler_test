@@ -18,7 +18,7 @@ function Input() {
       const list = listElement.value;
 
       if (key.length) {
-        things.add(key, list || '-1');
+        things.add(key, list);
 
         keyElement.value = '';
         listElement.value = '';
