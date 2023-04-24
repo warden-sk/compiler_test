@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import * as h from '../../helpers';
 import type { ThingInput } from '../../types';
 import DeleteButton from './DeleteButton';
 import MoveDownButton from './MoveDownButton';
@@ -42,7 +43,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         opacity={!thing.isDone && '50'}
         p="2"
       >
-        {'\u2713'}
+        {h.icons.done}
       </div>
       {/* (2/3) */}
       <div width="100">

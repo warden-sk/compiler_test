@@ -4,6 +4,7 @@
 
 const icons = {
   delete: '\u2717',
+  done: '\u2713',
   down: '\u2193',
   up: '\u2191',
 } as const;
