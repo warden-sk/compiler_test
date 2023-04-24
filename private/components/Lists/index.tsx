@@ -16,7 +16,7 @@ function Lists() {
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists">
         Lists
       </label>
-      <div alignItems="center" border="2" borderRadius="2" className="lists" display="flex" p="2" spaceX="2">
+      <div alignItems="center" border="2" borderRadius="2" display="flex" p="2" spaceX="2">
         <div>{h.icons.down}</div>
         <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
           {lists.map(listName => {
