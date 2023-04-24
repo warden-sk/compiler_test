@@ -12,16 +12,12 @@
 body {
   background-color: hsl(0, 0%, 93.75%);
   color: hsl(0, 0%, 6.25%);
-  height: 100%;
 }
 @media (prefers-color-scheme: dark) {
   body {
     background-color: hsl(0, 0%, 6.25%);
     color: hsl(0, 0%, 93.75%);
   }
-}
-html {
-  height: 100%;
 }
 input,
 select {
@@ -39,7 +35,6 @@ select {
 /**/
 .lists {
   border-color: hsl(0, 0%, 50%);
-  border-style: dashed !important;
 }
 /* /Users/marekkobida/Documents/warden/compiler_test/private/components/Client/index.css */
 /*
@@ -55,10 +50,4 @@ select {
     border-color: hsl(120, 100%, 75%);
     color: hsl(120, 100%, 75%);
   }
-}
-/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
-:root {
-  --Component\(background-color\): hsl(0, 0%, 12.5%);
-  --Component\(border-color\): hsl(0, 0%, 25%);
-  --Component\(color\)\(purple\): hsl(0, 0%, 87.5%);
 }
