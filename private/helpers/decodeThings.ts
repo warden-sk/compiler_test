@@ -16,7 +16,7 @@ function decodeThings(things: string): Thing[] {
       doneAt: $[2] ? new Date(+$[2]) : undefined,
       isDone: $[3] === '1',
       key: $[4],
-      list: $[5] ? $[5] : undefined,
+      listName: $[5] ? $[5] : undefined,
     };
 
     decodedThings = [...decodedThings, decodedThing];

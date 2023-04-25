@@ -15,7 +15,7 @@ export interface Thing {
   doneAt?: Date;
   isDone: boolean;
   key: string;
-  list?: string;
+  listName?: string;
 }
 
 export interface ThingI extends UseDraggableO {

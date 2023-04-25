@@ -10,7 +10,7 @@ class Thing {
   doneAt?: Date;
   isDone: boolean;
   key: string;
-  list?: string;
+  listName?: string;
 
   constructor(public i: number, public parent: Things, thing: T) {
     this.createdAt = thing.createdAt;
@@ -18,7 +18,7 @@ class Thing {
     this.i = i;
     this.isDone = thing.isDone;
     this.key = thing.key;
-    this.list = thing.list;
+    this.listName = thing.listName;
     this.parent = parent;
   }
 

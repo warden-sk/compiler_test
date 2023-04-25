@@ -10,9 +10,9 @@ function encodeThings(things: Thing[]): string {
     const doneAt: number | string = thing.doneAt ? +thing.doneAt : '';
     const isDone: number = thing.isDone ? 1 : 0;
     const key: string = thing.key;
-    const list: string = thing.list ? thing.list : '';
+    const listName: string = thing.listName ? thing.listName : '';
 
-    return `${i ? `${$};` : ''}${createdAt},${doneAt},${isDone},${key},${list}`;
+    return `${i ? `${$};` : ''}${createdAt},${doneAt},${isDone},${key},${listName}`;
   }, '');
 }
 

@@ -9,7 +9,12 @@ import Option from './Option';
 function Lists() {
   const { setCurrentListName, things } = React.useContext(helpers.context);
 
-  const lists: (string | undefined)[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list))];
+  const lists: (string | undefined)[] = [
+    'All',
+    'Done',
+    'Not done',
+    ...new Set([...things].map(thing => thing.listName)),
+  ];
 
   return (
     <div opacity="50" spaceY="2">

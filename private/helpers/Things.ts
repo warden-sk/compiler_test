@@ -33,8 +33,8 @@ class Things {
 
   /* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-  add(key: string, list: string): T {
-    const newThing = { createdAt: new Date(), isDone: false, key, list };
+  add(key: string, listName: string): T {
+    const newThing = { createdAt: new Date(), isDone: false, key, listName };
 
     this.setThings(things => [...things, newThing]);
 
@@ -56,7 +56,7 @@ class Things {
         filteredThings = filteredThings.filter(thing => !thing.isDone);
         break;
       default:
-        filteredThings = filteredThings.filter(thing => thing.list === listName);
+        filteredThings = filteredThings.filter(thing => thing.listName === listName);
         break;
     }
 
