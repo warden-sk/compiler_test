@@ -1,0 +1,11 @@
+/*
+ * Copyright 2023 Marek Kobida
+ */
+
+.About {
+  background-color: #fff;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

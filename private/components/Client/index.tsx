@@ -5,11 +5,10 @@
 import React from 'react';
 import * as helpers from '../../helpers';
 import type { Thing } from '../../types';
+import About from '../About';
 import Input from '../Input';
 import Lists from '../Lists';
 import Things from '../Things';
-import ExportButton from './ExportButton';
-import ImportButton from './ImportButton';
 import './index.css';
 
 function Client() {
@@ -36,14 +35,11 @@ function Client() {
         things: new helpers.Things(currentListName, setThings, things),
       }}
     >
+      <About />
       <div className="container" mX="auto" p="4">
         <div display="flex" flexDirection="column" spaceY="4">
           <Lists />
           <Input />
-          <div display="flex" opacity="50" spaceX="2">
-            <ExportButton />
-            <ImportButton />
-          </div>
           <div fontSize="9" fontWeight="600">
             Things
           </div>
