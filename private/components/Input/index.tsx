@@ -27,8 +27,8 @@ function Input() {
 
   return (
     <div spaceY="2">
-      {/* (1) */}
-      <label cursor="pointer" display="block" fontWeight="600" htmlFor="key">
+      {/* (1/2) */}
+      <label cursor="pointer" display="block" fontSize="5" fontWeight="600" htmlFor="key">
         What has to be done?
       </label>
       <input
@@ -41,7 +41,7 @@ function Input() {
         type="text"
         width="100"
       />
-      {/* (2) */}
+      {/* (2/2) */}
       <div opacity="50" spaceY="2">
         <label cursor="pointer" display="block" fontWeight="600" htmlFor="listName">
           List name

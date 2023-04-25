@@ -13,7 +13,7 @@ function ImportButton() {
       <input
         display="none"
         id="import"
-        onChange={e => {
+        onInput={e => {
           if (e.currentTarget.files) {
             const file = e.currentTarget.files[0];
 
