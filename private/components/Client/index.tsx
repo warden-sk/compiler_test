@@ -36,11 +36,11 @@ function Client() {
     >
       <div className="container" mX="auto" p="4">
         <div display="flex" flexDirection="column" spaceY="4">
-          <Lists />
           <Input />
           <div fontSize="9" fontWeight="600">
             Things
           </div>
+          <Lists />
           <Things />
         </div>
       </div>

@@ -5,11 +5,6 @@
 import type React from 'react';
 import type T from './helpers/Thing';
 
-export interface ListNameInputI {
-  listElement: React.MutableRefObject<HTMLInputElement | null>;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-}
-
 export interface Thing {
   createdAt: Date;
   doneAt?: Date;

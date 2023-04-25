@@ -26,23 +26,25 @@ function Input() {
   }, []);
 
   return (
-    <div spaceY="2">
+    <div alignItems="flex-end" display="flex" spaceX="2">
       {/* (1/2) */}
-      <label cursor="pointer" display="block" fontSize="5" fontWeight="600" htmlFor="key">
-        What has to be done?
-      </label>
-      <input
-        border="2"
-        borderRadius="2"
-        id="key"
-        onKeyDown={onKeyDown}
-        p="2"
-        ref={keyElement}
-        type="text"
-        width="100"
-      />
+      <div spaceY="2" width="8/12">
+        <label cursor="pointer" display="block" fontSize="5" fontWeight="600" htmlFor="key">
+          What has to be done?
+        </label>
+        <input
+          border="2"
+          borderRadius="2"
+          id="key"
+          onKeyDown={onKeyDown}
+          p="2"
+          ref={keyElement}
+          type="text"
+          width="100"
+        />
+      </div>
       {/* (2/2) */}
-      <div opacity="50" spaceY="2">
+      <div opacity="50" spaceY="2" width="4/12">
         <label cursor="pointer" display="block" fontWeight="600" htmlFor="listName">
           List name
         </label>
