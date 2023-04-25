@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import * as helpers from '../helpers';
-import Thing from './Thing';
+import * as helpers from '../../helpers';
+import Thing from '../Thing';
 
 function Things() {
   const { things } = React.useContext(helpers.context);
