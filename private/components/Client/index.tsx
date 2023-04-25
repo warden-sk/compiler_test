@@ -31,7 +31,7 @@ function Client() {
       value={{
         currentListName,
         setCurrentListName,
-        things: new helpers.Things(currentListName, setThings, things),
+        things: new helpers.Things(currentListName, setCurrentListName, setThings, things),
       }}
     >
       <div className="container" mX="auto" p="4">

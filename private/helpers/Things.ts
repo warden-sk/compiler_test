@@ -11,6 +11,7 @@ class Things {
 
   constructor(
     public currentListName: string,
+    public setCurrentListName: React.Dispatch<React.SetStateAction<string>>,
     public setThings: React.Dispatch<React.SetStateAction<T[]>>,
     things: T[]
   ) {
