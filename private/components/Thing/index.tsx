@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
-import type { ThingInput } from '../../types';
+import * as helpers from '../../helpers';
+import type { ThingI } from '../../types';
 import DeleteButton from './DeleteButton';
 import MoveDownButton from './MoveDownButton';
 import MoveUpButton from './MoveUpButton';
 
-function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
+function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
   const onKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const key = e.currentTarget.value;
@@ -43,7 +43,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingInput) {
         opacity={!thing.isDone && '50'}
         p="2"
       >
-        {h.icons.done}
+        {helpers.icons.done}
       </div>
       {/* (2/3) */}
       <div width="100">

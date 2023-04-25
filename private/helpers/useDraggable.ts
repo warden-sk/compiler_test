@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import type { UseDraggableOutput } from '../types';
+import type { UseDraggableO } from '../types';
 import context from './context';
 
-function useDraggable(): UseDraggableOutput {
+function useDraggable(): UseDraggableO {
   const [currentThingI, setCurrentThingI] = React.useState<number>();
   const { things } = React.useContext(context);
 

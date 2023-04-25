@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
 function Option({ listName }: { key: React.Key; listName: string }) {
-  const { things } = React.useContext(h.context);
+  const { things } = React.useContext(helpers.context);
 
   return (
     <option value={listName}>

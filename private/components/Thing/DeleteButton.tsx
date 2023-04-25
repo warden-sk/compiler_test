@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
-function DeleteButton({ thing }: { thing: h.Thing }) {
+function DeleteButton({ thing }: { thing: helpers.Thing }) {
   return (
     <div cursor="pointer" onClick={() => thing.delete()}>
-      {h.icons.delete}
+      {helpers.icons.delete}
     </div>
   );
 }

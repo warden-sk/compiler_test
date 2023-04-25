@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
-import * as h from '../helpers';
+import * as helpers from '../helpers';
 import Thing from './Thing';
 
 function Things() {
-  const { things } = React.useContext(h.context);
+  const { things } = React.useContext(helpers.context);
 
-  const draggable = h.useDraggable();
+  const draggable = helpers.useDraggable();
 
   if (things.length) {
     return (

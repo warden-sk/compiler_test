@@ -3,11 +3,11 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 import Option from './Option';
 
 function Lists() {
-  const { setCurrentListName, things } = React.useContext(h.context);
+  const { setCurrentListName, things } = React.useContext(helpers.context);
 
   const lists: (string | undefined)[] = ['All', 'Done', 'Not done', ...new Set([...things].map(thing => thing.list))];
 
@@ -17,7 +17,7 @@ function Lists() {
         Lists
       </label>
       <div alignItems="center" border="2" borderRadius="2" display="flex" p="2" spaceX="2">
-        <div>{h.icons.down}</div>
+        <div>{helpers.icons.down}</div>
         <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
           {lists.map(listName => {
             if (listName) {

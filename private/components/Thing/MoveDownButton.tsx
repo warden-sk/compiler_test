@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
-function MoveDownButton({ thing }: { thing: h.Thing }) {
+function MoveDownButton({ thing }: { thing: helpers.Thing }) {
   return (
     <div cursor="pointer" onClick={() => thing.moveDown()} opacity={thing.isLast && '50'}>
-      {h.icons.down}
+      {helpers.icons.down}
     </div>
   );
 }

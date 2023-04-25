@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
-function MoveUpButton({ thing }: { thing: h.Thing }) {
+function MoveUpButton({ thing }: { thing: helpers.Thing }) {
   return (
     <div cursor="pointer" onClick={() => thing.moveUp()} opacity={thing.isFirst && '50'}>
-      {h.icons.up}
+      {helpers.icons.up}
     </div>
   );
 }

@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
 function ExportButton() {
-  const { things } = React.useContext(h.context);
+  const { things } = React.useContext(helpers.context);
 
   if (things.length) {
     return (
@@ -17,7 +17,7 @@ function ExportButton() {
         display="flex"
         fontWeight="600"
         onClick={() => {
-          const file = h.encodeThings([...things]);
+          const file = helpers.encodeThings([...things]);
 
           const fileUrl = URL.createObjectURL(new Blob([file], { type: 'text/plain' }));
 
@@ -32,7 +32,7 @@ function ExportButton() {
         p="2"
         spaceX="2"
       >
-        <div>{h.icons.down}</div>
+        <div>{helpers.icons.down}</div>
         <div>Export to file</div>
       </div>
     );

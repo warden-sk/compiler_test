@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 
 function ImportButton() {
-  const { things } = React.useContext(h.context);
+  const { things } = React.useContext(helpers.context);
 
   return (
     <div>
@@ -21,7 +21,7 @@ function ImportButton() {
 
             fileReader.addEventListener('load', () => {
               if (fileReader.result) {
-                things.setThings(h.decodeThings(fileReader.result.toString()));
+                things.setThings(helpers.decodeThings(fileReader.result.toString()));
               }
             });
 
@@ -42,7 +42,7 @@ function ImportButton() {
         p="2"
         spaceX="2"
       >
-        <div>{h.icons.up}</div>
+        <div>{helpers.icons.up}</div>
         <div>Import from file</div>
       </div>
     </div>

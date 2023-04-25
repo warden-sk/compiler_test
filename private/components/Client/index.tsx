@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import * as h from '../../helpers';
+import * as helpers from '../../helpers';
 import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
@@ -20,20 +20,20 @@ function Client() {
     const things = localStorage.getItem('things');
 
     if (things) {
-      setThings(h.decodeThings(things));
+      setThings(helpers.decodeThings(things));
     }
   }, []);
 
   React.useLayoutEffect(() => {
-    localStorage.setItem('things', h.encodeThings(things));
-  }, [h.encodeThings(things)]);
+    localStorage.setItem('things', helpers.encodeThings(things));
+  }, [helpers.encodeThings(things)]);
 
   return (
-    <h.context.Provider
+    <helpers.context.Provider
       value={{
         currentListName,
         setCurrentListName,
-        things: new h.Things(currentListName, setThings, things),
+        things: new helpers.Things(currentListName, setThings, things),
       }}
     >
       <div className="container" mX="auto" p="4">
@@ -50,7 +50,7 @@ function Client() {
           <Things />
         </div>
       </div>
-    </h.context.Provider>
+    </helpers.context.Provider>
   );
 }
 
