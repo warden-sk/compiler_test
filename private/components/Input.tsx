@@ -3,25 +3,25 @@
  */
 
 import React from 'react';
-import * as h from '../helpers';
+import * as helpers from '../helpers';
 import ListNameInput from './ListNameInput';
 
 function Input() {
-  const { things } = React.useContext(h.context);
+  const { things } = React.useContext(helpers.context);
+
+  const keyElement = React.useRef<HTMLInputElement | null>(null);
+  const listElement = React.useRef<HTMLInputElement | null>(null);
 
   const onKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      const keyElement = window.document.querySelector('#key') as HTMLInputElement;
-      const listElement = window.document.querySelector('#listName') as HTMLInputElement;
-
-      const key = keyElement.value;
-      const list = listElement.value;
+    if (e.key === 'Enter' && keyElement.current && listElement.current) {
+      const key = keyElement.current.value;
+      const list = listElement.current.value;
 
       if (key.length) {
         things.add(key, list);
 
-        keyElement.value = '';
-        listElement.value = '';
+        keyElement.current.value = '';
+        listElement.current.value = '';
       }
     }
   }, []);
@@ -31,8 +31,17 @@ function Input() {
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="key">
         What has to be done?
       </label>
-      <input border="2" borderRadius="2" id="key" onKeyDown={onKeyDown} p="2" type="text" width="100" />
-      <ListNameInput onKeyDown={onKeyDown} />
+      <input
+        border="2"
+        borderRadius="2"
+        id="key"
+        onKeyDown={onKeyDown}
+        p="2"
+        ref={keyElement}
+        type="text"
+        width="100"
+      />
+      <ListNameInput listElement={listElement} onKeyDown={onKeyDown} />
     </div>
   );
 }

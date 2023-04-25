@@ -5,6 +5,11 @@
 import type React from 'react';
 import type T from './helpers/Thing';
 
+export interface ListNameInputI {
+  listElement: React.MutableRefObject<HTMLInputElement | null>;
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+}
+
 export interface Thing {
   createdAt: Date;
   doneAt?: Date;
@@ -13,12 +18,12 @@ export interface Thing {
   list?: string;
 }
 
-export interface ThingInput extends UseDraggableOutput {
+export interface ThingI extends UseDraggableO {
   key: React.Key;
   thing: T;
 }
 
-export interface UseDraggableOutput {
+export interface UseDraggableO {
   onDragEnd: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
   onDragOver: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
   onDragStart: (e: React.DragEvent<HTMLDivElement>, i: number) => void;
