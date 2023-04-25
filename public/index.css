@@ -23,7 +23,6 @@ input,
 select {
   appearance: none;
   background-color: inherit;
-  border-color: hsl(0, 0%, 50%);
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -31,10 +30,6 @@ select {
   line-height: inherit;
   margin: 0;
   padding: 0;
-}
-/**/
-.lists {
-  border-color: hsl(0, 0%, 50%);
 }
 /* /Users/marekkobida/Documents/warden/compiler_test/private/components/Client/index.css */
 /*
