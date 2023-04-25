@@ -5,7 +5,6 @@
 import React from 'react';
 import * as helpers from '../../helpers';
 import type { Thing } from '../../types';
-import About from '../About';
 import Input from '../Input';
 import Lists from '../Lists';
 import Things from '../Things';
@@ -35,7 +34,6 @@ function Client() {
         things: new helpers.Things(currentListName, setThings, things),
       }}
     >
-      <About />
       <div className="container" mX="auto" p="4">
         <div display="flex" flexDirection="column" spaceY="4">
           <Lists />

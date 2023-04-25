@@ -23,7 +23,13 @@ function Lists() {
       </label>
       <div alignItems="center" border="2" borderRadius="2" display="flex" p="2" spaceX="2">
         <div>{helpers.icons.down}</div>
-        <select border="0" id="lists" onInput={e => setCurrentListName(e.currentTarget.value)} width="100">
+        <select
+          border="0"
+          cursor="pointer"
+          id="lists"
+          onInput={e => setCurrentListName(e.currentTarget.value)}
+          width="100"
+        >
           {lists.map(listName => {
             if (listName) {
               return <Option key={listName} listName={listName} />;
