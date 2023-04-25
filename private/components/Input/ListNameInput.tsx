@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import type * as types from '../types';
+import type * as types from '../../types';
 
 function ListNameInput({ listElement, onKeyDown }: types.ListNameInputI) {
   return (

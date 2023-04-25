@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import * as helpers from '../helpers';
+import * as helpers from '../../helpers';
 import ListNameInput from './ListNameInput';
 
 function Input() {
