@@ -9,3 +9,4 @@ export { default as decodeThings } from './decodeThings';
 export { default as encodeThings } from './encodeThings';
 export { default as icons } from './icons';
 export { default as useDraggable } from './useDraggable';
+export { exportThings, importThings } from './exportImport';

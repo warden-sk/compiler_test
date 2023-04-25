@@ -7,28 +7,39 @@ import context from './context';
 import decodeThings from './decodeThings';
 import encodeThings from './encodeThings';
 
-function exportThings() {
+export function exportThings() {
   const { things } = React.useContext(context);
 
-  const file = encodeThings([...things]);
+  return () => {
+    const file = encodeThings([...things]);
 
-  const fileUrl = URL.createObjectURL(new Blob([file], { type: 'text/plain' }));
+    const fileUrl = URL.createObjectURL(new Blob([file], { type: 'text/plain' }));
 
-  const a = document.createElement('a');
-  a.download = 'things.txt';
-  a.href = fileUrl;
+    const a = document.createElement('a');
+    a.download = 'things.txt';
+    a.href = fileUrl;
 
-  a.click();
+    a.click();
 
-  URL.revokeObjectURL(fileUrl);
+    URL.revokeObjectURL(fileUrl);
+  };
 }
 
-function importThings(e: React.FormEvent<HTMLInputElement>) {
+export function importThings() {
   const { things } = React.useContext(context);
 
-  if (e.currentTarget.files) {
-    const [file] = e.currentTarget.files;
+  return () => {
+    const input = document.createElement('input');
+    input.type = 'file';
 
-    file.text().then(text => things.setThings(decodeThings(text)));
-  }
+    input.addEventListener('input', function () {
+      if (this.files) {
+        const [file] = this.files;
+
+        file.text().then(text => things.setThings(decodeThings(text)));
+      }
+    });
+
+    input.click();
+  };
 }
