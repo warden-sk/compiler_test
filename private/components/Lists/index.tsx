@@ -7,7 +7,7 @@ import * as helpers from '../../helpers';
 import Option from './Option';
 
 function Lists() {
-  const { setCurrentListName, things } = React.useContext(helpers.context);
+  const { currentListName, setCurrentListName, things } = React.useContext(helpers.context);
 
   const lists: (string | undefined)[] = [
     'All',
@@ -15,6 +15,12 @@ function Lists() {
     'Not done',
     ...new Set([...things].map(thing => thing.listName)),
   ];
+
+  React.useLayoutEffect(() => {
+    if (lists.indexOf(currentListName) === -1) {
+      setCurrentListName('All');
+    }
+  }, [lists]);
 
   return (
     <div opacity="50" spaceY="2">
