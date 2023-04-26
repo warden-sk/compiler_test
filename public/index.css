@@ -23,6 +23,7 @@ input,
 select {
   appearance: none;
   background-color: inherit;
+  border-color: hsl(0, 0%, 6.25%);
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -31,18 +32,32 @@ select {
   margin: 0;
   padding: 0;
 }
+@media (prefers-color-scheme: dark) {
+  input,
+  select {
+    border-color: hsl(0, 0%, 93.75%);
+  }
+}
+.test {
+  border-color: hsl(0, 0%, 6.25%);
+}
+@media (prefers-color-scheme: dark) {
+  .test {
+    border-color: hsl(0, 0%, 93.75%);
+  }
+}
 /* /Users/marekkobida/Documents/warden/compiler_test/private/components/Client/index.css */
 /*
  * Copyright 2023 Marek Kobida
  */
 
 .done {
-  border-color: hsl(120, 100%, 25%);
+  border-color: hsl(120, 100%, 25%) !important;
   color: hsl(120, 100%, 25%);
 }
 @media (prefers-color-scheme: dark) {
   .done {
-    border-color: hsl(120, 100%, 75%);
+    border-color: hsl(120, 100%, 75%) !important;
     color: hsl(120, 100%, 75%);
   }
 }
