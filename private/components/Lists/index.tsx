@@ -27,7 +27,7 @@ function Lists() {
       <label cursor="pointer" display="block" fontWeight="600" htmlFor="lists">
         Lists
       </label>
-      <div alignItems="center" border="2" borderRadius="2" display="flex">
+      <div alignItems="center" border="2" borderRadius="2" className="test" display="flex">
         <select
           border="0"
           cursor="pointer"
