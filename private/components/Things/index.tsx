@@ -15,7 +15,7 @@ function Things() {
     return (
       <div spaceY="4">
         {[...things].map(thing => (
-          <Thing {...draggable} key={thing.i} thing={thing} />
+          <Thing {...draggable} key={`${thing.i}${thing.key}`} thing={thing} />
         ))}
       </div>
     );

@@ -26,9 +26,15 @@ function Input() {
   }, []);
 
   return (
-    <div alignItems="flex-end" display="flex" spaceX="2">
+    <div
+      alignItems="flex-end"
+      display="flex"
+      flexWrap={['wrap', { '#': 'nowrap' }]}
+      spaceX={{ '#': '2' }}
+      spaceY={['2', { '#': '0' }]}
+    >
       {/* (1/2) */}
-      <div spaceY="2" width="8/12">
+      <div spaceY="2" width={['100', { '#': '8/12' }]}>
         <label cursor="pointer" display="block" fontSize="5" fontWeight="600" htmlFor="key">
           What has to be done?
         </label>
@@ -44,7 +50,7 @@ function Input() {
         />
       </div>
       {/* (2/2) */}
-      <div opacity="50" spaceY="2" width="4/12">
+      <div opacity="50" spaceY="2" width={['100', { '#': '4/12' }]}>
         <label cursor="pointer" display="block" fontWeight="600" htmlFor="listName">
           List name
         </label>

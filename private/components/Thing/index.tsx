@@ -50,6 +50,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
         <input border="0" defaultValue={thing.key} fontSize="5" onKeyDown={e => onKeyDown(e)} type="text" width="100" />
         <div fontSize="1" opacity="50">
           Created at {thing.createdAt.toLocaleString()}
+          {thing.doneAt && ` \u2014 Done at ${thing.doneAt.toLocaleString()}`}
         </div>
       </div>
       {/* (3/3) */}

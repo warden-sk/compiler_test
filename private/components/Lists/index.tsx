@@ -28,7 +28,6 @@ function Lists() {
         Lists
       </label>
       <div alignItems="center" border="2" borderRadius="2" display="flex">
-        <div p="2">{helpers.icons.down}</div>
         <select
           border="0"
           cursor="pointer"
@@ -43,6 +42,7 @@ function Lists() {
             }
           })}
         </select>
+        <div p="2">{helpers.icons.down}</div>
       </div>
     </div>
   );
