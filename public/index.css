@@ -29,12 +29,6 @@ select {
   margin: 0;
   padding: 0;
 }
-@media (prefers-color-scheme: dark) {
-  input,
-  select {
-    border-color: hsl(0, 0%, 93.75%);
-  }
-}
 /*
  * Copyright 2023 Marek Kobida
  */
