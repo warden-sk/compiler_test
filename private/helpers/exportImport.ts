@@ -32,11 +32,11 @@ export function importThings() {
     const input = document.createElement('input');
     input.type = 'file';
 
-    input.addEventListener('input', function () {
+    input.addEventListener('input', async function () {
       if (this.files) {
         const [file] = this.files;
 
-        file.text().then(text => things.setThings(decodeThings(text)));
+        things.setThings(decodeThings(await file.text()));
       }
     });
 
