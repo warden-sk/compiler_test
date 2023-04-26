@@ -3,12 +3,16 @@
  */
 
 .done {
-  border-color: hsl(120, 100%, 25%) !important;
   color: hsl(120, 100%, 25%);
+}
+.done .test {
+  border-color: hsl(120, 100%, 25%) !important;
 }
 @media (prefers-color-scheme: dark) {
   .done {
-    border-color: hsl(120, 100%, 75%) !important;
     color: hsl(120, 100%, 75%);
+  }
+  .done .test {
+    border-color: hsl(120, 100%, 75%) !important;
   }
 }

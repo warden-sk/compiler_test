@@ -25,6 +25,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
   return (
     <div
       alignItems="center"
+      className={{ done: thing.isDone }}
       display="flex"
       draggable
       onDragEnd={e => onDragEnd(e, thing.i)}
@@ -36,7 +37,7 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
       <div
         border="2"
         borderRadius="2"
-        className={['test', { done: thing.isDone }]}
+        className="test"
         cursor="pointer"
         lineHeight="1"
         onClick={() => thing.done()}
