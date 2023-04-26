@@ -9,6 +9,22 @@ import Input from '../Input';
 import Lists from '../Lists';
 import Things from '../Things';
 
+function ExportImportButtons() {
+  const exportToFile = helpers.exportThings();
+  const importFromFile = helpers.importThings();
+
+  return (
+    <div>
+      <div cursor="pointer" onClick={() => exportToFile()}>
+        Export to file
+      </div>
+      <div cursor="pointer" onClick={() => importFromFile()}>
+        Import from file
+      </div>
+    </div>
+  );
+}
+
 function Client() {
   const [currentListName, setCurrentListName] = React.useState<string>('All');
   const [things, setThings] = React.useState<Thing[]>([]);
@@ -35,6 +51,7 @@ function Client() {
     >
       <div className="container" mX="auto" p="4">
         <div display="flex" flexDirection="column" spaceY="4">
+          <ExportImportButtons />
           <Input />
           <div fontSize="9" fontWeight="600">
             Things
