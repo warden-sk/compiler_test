@@ -38,7 +38,6 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
       <div
         border="2"
         borderRadius="2"
-        className="test"
         cursor="pointer"
         lineHeight="1"
         onClick={() => thing.done()}
@@ -51,8 +50,8 @@ function Thing({ onDragEnd, onDragOver, onDragStart, thing }: ThingI) {
       <div width="100">
         <input border="0" defaultValue={thing.key} fontSize="5" onKeyDown={e => onKeyDown(e)} type="text" width="100" />
         <div fontSize="1" opacity="50">
-          Created at {thing.createdAt.toLocaleString()}
-          {thing.doneAt && ` \u2014 Done at ${thing.doneAt.toLocaleString()}`}
+          Created at {helpers.decodeDate(thing.createdAt)}
+          {thing.doneAt && ` \u2014 Done at ${helpers.decodeDate(thing.doneAt)}`}
         </div>
       </div>
       {/* (3/3) */}

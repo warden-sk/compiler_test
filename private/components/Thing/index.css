@@ -1,0 +1,12 @@
+/*
+ * Copyright 2023 Marek Kobida
+ */
+
+.done {
+  color: hsl(120, 100%, 25%);
+}
+@media (prefers-color-scheme: dark) {
+  .done {
+    color: hsl(120, 100%, 75%);
+  }
+}
