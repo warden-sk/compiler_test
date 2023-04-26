@@ -6,6 +6,7 @@ import React from 'react';
 import * as helpers from '../../helpers';
 import type { ThingI } from '../../types';
 import DeleteButton from './DeleteButton';
+import './index.css';
 import MoveDownButton from './MoveDownButton';
 import MoveUpButton from './MoveUpButton';
 

@@ -8,7 +8,6 @@ import type { Thing } from '../../types';
 import Input from '../Input';
 import Lists from '../Lists';
 import Things from '../Things';
-import './index.css';
 
 function Client() {
   const [currentListName, setCurrentListName] = React.useState<string>('All');
