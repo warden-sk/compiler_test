@@ -2,6 +2,7 @@
 const Cache = require('@warden-sk/compiler/Cache').default;
 const compile = require('@warden-sk/compiler').default;
 const compileCss = require('@warden-sk/compiler/compileCss').default;
+const json = require('./compiler.json');
 
 const cache = new Cache();
 
@@ -19,7 +20,7 @@ function compiler(code) {
       assets: ['./index.css', './index.js'],
       cache,
       outputPath: './public',
-      publicPath: process.env.NODE_ENV === 'production' && 'https://warden-sk.github.io/compiler_test/public',
+      publicPath: process.env.NODE_ENV === 'production' && json.publicPath,
       // reportErrors: process.env.NODE_ENV !== 'production',
       useServer: true,
       useTransformers: true,
