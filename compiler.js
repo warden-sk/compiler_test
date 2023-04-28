@@ -21,7 +21,7 @@ function compiler(code) {
       cache,
       outputPath: './public',
       publicPath: process.env.NODE_ENV === 'production' && json.publicPath,
-      // reportErrors: process.env.NODE_ENV !== 'production',
+      reportErrors: process.env.NODE_ENV !== 'production',
       useServer: true,
       useTransformers: true,
     });
